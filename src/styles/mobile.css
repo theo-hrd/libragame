@@ -1,0 +1,142 @@
+/* MOBILE */
+
+@media only screen and (min-width:320px){
+    
+    /* body color */
+    body{
+        background-color: var(--dark_00dp);
+    }
+
+
+    /* NAVBAR */
+    .navbar{
+        background-color: var(--dark_01dp);
+        padding: 10px 10px;
+    }
+
+    .main_nav{
+        display: none;
+    }
+
+    .main_nav li{
+        text-align: center;
+        margin: 15px auto;
+    }
+
+    .nav_links{
+        color: var(--lilwhite);
+        font-family: var(--open-sans);
+    }
+    
+    .brand_name{
+        font-family: var(--cinzel);
+        color: white;
+        display: inline-block;
+        font-size: 1.5rem;
+        margin-top: 6px;
+        margin-left: 15px;
+    }
+    
+    .navbar_toggle {
+        position: absolute;
+        color: white;
+        top: 15px;
+        right: 20px;
+        cursor: pointer; 
+        font-size: 24px;
+    }
+
+    .bx-menu{
+        font-size: 2rem;
+    }
+
+    .active {
+        padding-top: 10px;
+        display: block;
+    }
+
+
+    /* MAIN TITLE */
+
+    .bg_img{
+        width: 100%;
+        height: auto;
+        position: relative;
+        object-fit: fill;
+    }
+
+    .main_title{
+        padding-top: 10px;
+        text-align: center;
+    }
+
+    .main_title h1{
+        color: white;
+        font-family: var(--cinzel);
+    }
+
+    .main_title p{
+        color: #e6e6e6;
+        font-family: var(--open-sans);
+    }
+
+    /* browse games */
+
+    .cta_section{
+        padding-top: 20px;
+    }
+
+    .cta{
+        font-family: var(--lexend);
+        display: block;
+        margin: 0 auto;
+        background-color: var(--dark_01dp);
+        padding: 12px 15px 10px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .cta a{
+        color: var(--cta);
+        font-size: 1.3rem;
+    }
+
+    /* FEATURED GAMES */
+
+    .featured_games{
+        padding-top: 20px;
+    }
+
+    .featured_games h2{
+        font-family: var(--lexend);
+        color: var(--lilwhite);
+        font-size: 1.3rem;
+        text-align: center;
+        padding-bottom: 30px;
+    }
+
+    .featured_games :is(h3){
+        font-family: var(--lexend);
+        color: var(--lilwhite);
+        text-align: center;
+        padding-bottom: 6px;
+    }
+
+    #featured_game_card{
+        text-align: center;
+        display: inline-block;
+        margin: 0 auto;
+        padding: 20px 20px;
+        background-color: var(--dark_01dp);
+        border-radius: 10px;
+        width: 100%;
+    }
+
+    #featured_game_card img{
+        width: 300px;
+        height: 200px;
+        margin-bottom: 10px;
+    }
+
+
+}   

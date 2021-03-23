@@ -1,0 +1,39 @@
+/* importing all the other css files into one, so only one link to css in header */
+@import url(mobile.css);
+@import url(desktop.css);
+@import url(root.css);
+
+/* Reset */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style-type: none;
+}
+
+button{
+    text-decoration: none;
+    border-style: none;
+}
+
+/* end of reset */
+
+
+html{
+    scroll-behavior: smooth;
+}
+
+.container{
+    margin-right: auto; 
+    margin-left:  auto;
+    padding-right: 10px;
+    padding-left:  10px;
+}
+

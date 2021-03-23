@@ -1,0 +1,35 @@
+/* DESKTOP */
+
+@media only screen and (min-width:768px){
+
+    .navbar{
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 0;
+        height: 70px;
+        align-items: center;
+    }
+
+    .main_nav{
+        display: flex;
+        margin-right: 30px;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    .main_nav li{
+        margin: 0;
+    }
+
+    .nav_links{
+        margin-left: 40px;
+    }
+
+    .logo{
+        margin-top: 0;
+    }
+
+    .navbar_toggle{
+        display: none;
+    }
+
+}

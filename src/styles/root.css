@@ -1,0 +1,17 @@
+/* root*/
+/* variables to reuse in multiple css files */
+:root{
+    /* fonts */
+    --cinzel: 'Cinzel Decorative', sans-serif; /* for main page and big big titles */
+    --lexend: 'Lexend', sans-serif;  /* for paragraphs and little texts */
+    --open-sans:'Open Sans', sans-serif; /* for titles mostly */
+    
+    /* colors */
+    --dark_00dp: #18191A;
+    --dark_01dp: #242526;
+    --dark_02dp:#3A3B3C;
+    --dark_03dp: #919191;
+    --dark_04dp: #B0B3B8;
+    --cta: rgb(182, 13, 248);
+    --lilwhite: rgba(255, 255, 255, 0.90);
+}
