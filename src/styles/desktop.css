@@ -6,7 +6,6 @@
         display: flex;
         justify-content: space-between;
         padding-bottom: 0;
-        height: 70px;
         align-items: center;
     }
 
@@ -22,6 +21,7 @@
 
     .nav_links{
         margin-left: 40px;
+        font-size: 1.3rem;
     }
 
     .logo{
@@ -32,4 +32,52 @@
         display: none;
     }
 
+    .brand_name{
+        font-size: 3rem;
+    }
+
+    .main_title{
+        background: rgb(2,0,36);
+        background: -moz-radial-gradient(circle, rgb(0, 0, 0) 0%, rgba(0,0,0,0.5049370089832808) 50%, rgba(0, 0, 0, 0) 100%);
+        background: -webkit-radial-gradient(circle, rgb(0, 0, 0) 0%, rgba(0,0,0,0.5049370089832808) 50%, rgba(0, 0, 0, 0) 100%);
+        background: radial-gradient(circle, rgb(0, 0, 0) 0%, rgba(0,0,0,0.5049370089832808) 50%, rgba(0, 0, 0, 0) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#00d4ff",GradientType=1);
+        position: absolute;
+        top: 420px;
+        left: 140px;
+        font-size: 3rem;
+    }
+
+    .cta{
+        padding: 30px 70px 30px;
+        opacity: 0.8;
+    }
+
+    .cta:hover{
+        opacity: 1;
+        transition: all 0.1s;
+    }
+
+    .cta a{
+        font-size: 2.5rem;
+        padding: 30px 30px;
+    }
+
+    #featured_game_card{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .flex_game{
+        flex-direction: column;
+    }
+
+    .flex_game h3{
+        padding-bottom: 15px;
+    }
+
+    #featured_game_card img{
+        width: 450px;
+        height: 300px;
+    }
 }
