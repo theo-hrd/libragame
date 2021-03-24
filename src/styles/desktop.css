@@ -118,6 +118,13 @@
 
 @media only screen and (min-width:1920px){
     
+    .main_title{
+        font-size: 2.8rem;
+        top: 350px;
+        left: 250px;
+    }
+
+
     #featured_game_card img{
         width: 500px;
         height: 300px;
