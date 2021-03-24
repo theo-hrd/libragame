@@ -24,7 +24,6 @@
     }
 
     .nav_links{
-        color: var(--lilwhite);
         font-family: var(--open-sans);
     }
     
@@ -138,5 +137,18 @@
         margin-bottom: 10px;
     }
 
+    footer{
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 20px;
+        margin-top: 20px;
+        background-color: var(--dark_01dp);
+    }
+
+    footer a{
+        color: var(--cta);
+        font-family: var(--open-sans);
+        font-size: 1.3rem;
+    }
 
 }   

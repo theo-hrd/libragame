@@ -80,4 +80,52 @@
         width: 450px;
         height: 300px;
     }
+
+    .main_title{
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+
+    #featured_game_card{
+        flex-direction: column;
+    }
+}
+
+
+@media only screen and (min-width:1024px){
+
+    .main_title{
+        position: absolute;
+        top: 250px;
+        left: 150px;
+        font-size: 1.5rem;
+    }
+
+    #featured_game_card{
+        flex-direction: row;
+    }
+
+    #featured_game_card img{
+        width: 305px;
+        height: 210px;
+    }
+
+    footer{
+        padding: 15px 40px;
+    }
+}
+
+@media only screen and (min-width:1920px){
+    
+    #featured_game_card img{
+        width: 500px;
+        height: 300px;
+    }
+
+    footer{
+        padding-top: 30px;
+    }
+
+
 }

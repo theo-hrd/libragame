@@ -30,6 +30,11 @@ html{
     scroll-behavior: smooth;
 }
 
+.nav_links{
+    color: var(--cta);
+}
+
+
 .container{
     margin-right: auto; 
     margin-left:  auto;
