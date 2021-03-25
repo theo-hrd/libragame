@@ -1,0 +1,15 @@
+{
+    "name": "kercode/libra-game",
+    "authors": [
+        {
+            "name": "Théo",
+            "email": "theo.hrd02@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Project\\" : "./app"
+        }
+    },
+    "require": {}
+}
