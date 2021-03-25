@@ -45,7 +45,14 @@
         position: absolute;
         top: 420px;
         left: 140px;
+    }
+
+    .main_title h1{
         font-size: 3rem;
+    }
+
+    .main_title p{
+        font-size: 2.8rem;
     }
 
     .cta{
@@ -95,6 +102,7 @@
 
 @media only screen and (min-width:1024px){
 
+    /* --- homepage.php --- */
     .main_title{
         position: absolute;
         top: 250px;
@@ -113,6 +121,12 @@
 
     footer{
         padding: 15px 40px;
+    }
+
+    /* --- contact.php --- */
+
+    textarea{
+        width: 50%;
     }
 }
 

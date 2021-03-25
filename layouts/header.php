@@ -21,10 +21,10 @@
             <!-- navbar -->
             <nav class="navbar">
                 <span class="navbar_toggle" id="js-navbar-toggle"><i class='bx bx-menu'></i></span>
-                <a href="#" class="brand_name">LibraGame</a>
+                <a href="homepage.php" class="brand_name">LibraGame</a>
                 <ul class="main_nav" id="js-menu">
-                    <li><a href="#" class="nav_links">Contact</a></li>
-                    <li><a href="#" class="nav_links">Login</a></li>
+                    <li><a href="contact.php" class="nav_links">Contact</a></li>
+                    <li><a href="login.php" class="nav_links">Login</a></li>
                 </ul>
             </nav>
             
