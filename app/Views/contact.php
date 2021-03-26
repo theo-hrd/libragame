@@ -6,16 +6,13 @@
         
         <h1>Contact me</h1>
         
-        <form action="" method="post">
+        <form action="index.php?action=contactSender" method="POST">
             
-            <label for="firstname">First Name</label>
-            <input type="text" name="firstname" placeholder="Your first name"> 
-
-            <label for="lastname">Last Name</label>
-            <input type="text" name="lastname" placeholder="Your last name"> 
+            <label for="username">Username</label>
+            <input type="text" name="username" placeholder="Your username"> 
 
             <label for="mail">E-mail</label>
-            <input type="email" name="mail" placeholder="Your e-mail">
+            <input type="email" name="email" placeholder="Your e-mail">
 
             <label for="msg">Message</label>
             <textarea name="msg" cols="40" rows="5" placeholder="Your message (300 characters maximum)"></textarea>

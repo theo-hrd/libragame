@@ -12,7 +12,7 @@ class Database{
     protected function dbConnect(){
         
         try{
-            $database = new \PDO($_ENV['DB_ENV']);
+            $database = new \PDO("mysql:host=localhost;dbname=test;charset=utf8", 'root', 'admin');
             return $database;
         } 
         catch(Exception $e){

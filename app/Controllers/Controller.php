@@ -2,6 +2,7 @@
 
 namespace Project\Controllers;
 
+use Project\Models\ContactManager;
 
 class Controller{
 
@@ -21,5 +22,17 @@ class Controller{
         require 'app/Views/register.php';
     }
 
+    function contactSender($username, $email, $message){
+        $contactManager = new \Project\Models\ContactManager;
+
+        if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $contact = $contactManager->sendMessageToDb($username,$email,$message);
+            require 'app/Views/success.php';
+        } else{
+            header('Location: app/Views/error.php');
+        }
+
+
+    }
 
 }
