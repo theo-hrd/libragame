@@ -1,6 +1,4 @@
-<?php require_once './layouts/header.php'; ?>
-
-
+<?php ob_start(); ?>
 
 <div class="container">
     
@@ -8,13 +6,10 @@
         
         <h2 class="connect_title">Register a new account</h2>
         
-        <form action="" method="post">
+        <form action="index.php?action=contactSender" method="post">
             
-            <label for="firstName">First Name</label>
-            <input type="text" name="username" placeholder="Your first name">
-            
-            <label for="username">Last Name</label>
-            <input type="text" name="lastName" placeholder="Your last name">
+            <label for="username">Username</label>
+            <input type="text" name="username" placeholder="Your username">
 
             <label for="email">E-mail</label>
             <input type="email" name="email" placeholder="Your e-mail">
@@ -32,10 +27,11 @@
 
         </form>
 
-        <p class="not_registered">Already have an account yet ? <a href="login.php">Connect here</a></p>
+        <p class="not_registered">Already have an account yet ? <a href="index.php?action=login">Connect here</a></p>
 
     </div>
 
 </div>
 
-<?php require_once './layouts/footer.php'; ?>
+<?php $content = ob_get_clean(); ?> <!-- PHP function to inject the template -->
+<?php require 'templates/template.php'; ?>

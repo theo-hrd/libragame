@@ -1,9 +1,9 @@
-<?php require_once './layouts/header.php'; ?>
+<?php ob_start(); ?>
     
     <main>
 
         <!-- background image -->
-        <img class="bg_img" src="src/images/bg1080-min.jpg" alt="background image">
+        <img class="bg_img" src="app/public/images/bg1080-min.jpg" alt="background image">
         <!-- main title -->
         <div class="main_title">
             <h1>LibraGame</h1>
@@ -26,4 +26,5 @@
         </div>
     </main>
 
-<?php require_once './layouts/footer.php'; ?>
+    <?php $content = ob_get_clean(); ?> <!-- PHP function to inject the template -->
+<?php require 'templates/template.php'; ?>

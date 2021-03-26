@@ -1,4 +1,4 @@
-<?php require_once './layouts/header.php'; ?>
+<?php ob_start(); ?>
 
 
 <div class="container">
@@ -19,10 +19,11 @@
 
         </form>
 
-        <p class="not_registered">You don't have an account yet ? <a href="register.php">Register here</a></p>
+        <p class="not_registered">You don't have an account yet ? <a href="index.php?action=register">Register here</a></p>
 
     </div>
 
 </div>
 
-<?php require_once './layouts/footer.php'; ?>
+<?php $content = ob_get_clean(); ?> <!-- PHP function to inject the template -->
+<?php require 'templates/template.php'; ?>

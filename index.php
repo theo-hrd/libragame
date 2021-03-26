@@ -1,33 +1,37 @@
-<?php require_once './layouts/header.php'; ?>
-    
-    <main>
+<?php
+//index.php = 1st page read by the browser. We define our routes with actions for the user here. 
+session_start();
 
-        <!-- background image -->
-        <img class="bg_img" src="src/images/bg1080-min.jpg" alt="background image">
+require_once __DIR__ . '/vendor/autoload.php'; 
+
+use Project\Controllers\Controller;
+
+
+    try{
         
-        <!-- main title -->
-        <div class="main_title">
-            
-            <h1>LibraGame</h1>
-            <p>The library for your next game.</p>
+        $controller = new Controller();
 
-        </div>
-        
-        <div class="container">
-            
-            <!-- "browse games" button -->
-            <section class="cta_section">
-                <button class="cta"><a href="#">Browse games</a></button>
-            </section>
+        if(isset($_GET['action'])){
+            if($_GET['action'] == 'homepage'){ //returning the homepage.php view
+                $controller->homePage();
+            }
+            else if($_GET['action'] == 'contact'){ //returining the contact.php view
+                $controller->contactPage();
+            }
+            else if($_GET['action'] == 'login'){ //returning the login.php view
+                $controller->loginPage();
+            }
+            else if($_GET['action'] == 'register'){ //returning the register.php view
+                $controller->registerPage();
+            }
 
-            <!-- some games featured from rawg api -->
-            <div class="featured_games">
-                <h2>Featured games:</h2>
-                <div id="featured_game_card"></div>
-            </div>
+        } 
+        else{
+            $controller->homePage();
+        }
 
-        </div>
 
-    </main>
 
-<?php require_once './layouts/footer.php'; ?>
+    } catch(Exception $e){
+        die('Error: ' . $e->getMessage());
+    }

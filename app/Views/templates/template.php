@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="./src/styles/style.css">
+    <link rel="stylesheet" href="app/public/styles/style.css">
     <!-- icons -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <!-- google fonts -->
@@ -21,11 +20,28 @@
             <!-- navbar -->
             <nav class="navbar">
                 <span class="navbar_toggle" id="js-navbar-toggle"><i class='bx bx-menu'></i></span>
-                <a href="homepage.php" class="brand_name">LibraGame</a>
+                <a href="index.php?action=homepage" class="brand_name">LibraGame</a>
                 <ul class="main_nav" id="js-menu">
-                    <li><a href="contact.php" class="nav_links">Contact</a></li>
-                    <li><a href="login.php" class="nav_links">Login</a></li>
+                    <li><a href="index.php?action=contact" class="nav_links">Contact</a></li>
+                    <li><a href="index.php?action=login" class="nav_links">Login</a></li>
                 </ul>
             </nav>
             
     </header>
+
+
+        <!-- retrieving the whole content from other pages -->
+        <div>
+            <?= $content ?>
+        </div>
+
+
+        <footer>
+        <a href="https://github.com/theo-hrd">Théo Hérédia</a>
+        <a href="https://rawg.io/apidocs">RAWG API</a>
+    </footer>
+
+    <script src="app/public/js/menu.js"></script>
+    <script src="app/public/js/featured.js"></script>
+</body>
+</html>
