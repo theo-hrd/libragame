@@ -1,8 +1,6 @@
-require('dotenv').config()
-console.log(process.env)
-const api_key = process.env.API_KEY
+
 let render = document.getElementById('games');
-const url = "https://api.rawg.io/api/games?key=${api_key}";
+const url = "https://api.rawg.io/api/games?key=10afd979e0874030811ad36e60da2bda";
 
 async function featured(){
     const req = await fetch(url);

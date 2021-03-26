@@ -4,7 +4,7 @@
 
 
 /* --- homepage.php --- */
-@media only screen and (min-width:375px){
+@media only screen and (min-width:360px){
     
     /* body color */
     body{
@@ -59,7 +59,7 @@
     }
 
 
-    /* MAIN TITLE */
+    /* main title */
 
     .bg_img{
         width: 100%;
@@ -104,7 +104,7 @@
         font-size: 1.3rem;
     }
 
-    /* FEATURED GAMES */
+    /* featured games */
 
     .featured_games{
         padding-top: 20px;
@@ -141,6 +141,8 @@
         margin-bottom: 10px;
     }
 
+    /* footer */
+
     footer{
         padding-top: 20px;
         width: 100%;
@@ -157,13 +159,20 @@
         font-size: 1.3rem;
     }
 
+
 }   
 
 
 /* --- contact.php --- */
 
-@media only screen and (min-width:375px){
+@media only screen and (min-width:360px){
 
+    .contact_card{
+        background-color: var(--dark_01dp);
+        border-radius: 3px;    
+        margin: 10px;
+        padding: 10px;
+    }
 
     h1{
         font-family: var(--open-sans);
@@ -171,10 +180,6 @@
         font-size: 1.8rem;
         padding: 25px 10px;
         text-align: center;
-    }
-
-    .contact{
-        height: 90vh;
     }
 
     form{
@@ -191,7 +196,7 @@
 
     input{
         padding: 12px 20px;
-        margin: 8px 0;
+        margin: 20px 0;
         display: inline-block;
         border: 1px solid #ccc;
         border-radius: 4px;
@@ -217,9 +222,40 @@
         color: var(--cta);
         background-color: var(--dark_01dp);
         font-family: var(--open-sans);
+    }
+
+}
+
+
+/* --- login.php --- */
+@media only screen and (min-width:360px){
     
+
+    .connect_card{
+        background-color: var(--dark_01dp);
+        border-radius: 3px;
+        padding: 15px 0px;
+        margin: 150px 0px;
     }
 
 
+    .connect_title{
+        color: white;
+        text-align: center;
+        font-family: var(--open-sans);
+        padding: 20px 0px;
+    }
+
+    .not_registered{
+        text-align: center;
+        color: white;
+        font-family: var(--lexend);
+    }
+
+    .not_registered a{
+        color: var(--cta);
+        font-family: var(--lexend);
+        font-size: 1.2rem;
+    }
 
 }

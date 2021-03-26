@@ -1,14 +1,16 @@
-<?php
-    require_once './layouts/header.php';
-?>
+<?php require_once './layouts/header.php'; ?>
+    
     <main>
 
         <!-- background image -->
         <img class="bg_img" src="src/images/bg1080-min.jpg" alt="background image">
+        
         <!-- main title -->
         <div class="main_title">
+            
             <h1>LibraGame</h1>
             <p>The library for your next game.</p>
+
         </div>
         
         <div class="container">
@@ -25,8 +27,7 @@
             </div>
 
         </div>
+
     </main>
 
-<?php
-require_once './layouts/footer.php'; 
-?>
+<?php require_once './layouts/footer.php'; ?>
