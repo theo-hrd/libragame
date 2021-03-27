@@ -16,14 +16,14 @@
             <label for="email">E-mail</label>
             <input type="email" name="email" placeholder="Your e-mail">
 
-            <label for="email2">Confirm e-mail</label>
-            <input type="email2" name="email2" placeholder="confirm your e-mail">
+            <label for="confirmEmail">Confirm e-mail</label>
+            <input type="email" name="confirmEmail" placeholder="confirm your e-mail">
 
             <label for="password">Password</label>
             <input type="password" name="password" placeholder="Your password">
 
-            <label for="password2">Confirm password</label>
-            <input type="password2" name="password2" placeholder="Confirm your password"> <br>
+            <label for="confirmPassword">Confirm password</label>
+            <input type="password" name="confirmPassword" placeholder="Confirm your password"> <br>
             
             <input type="submit" value="Send">
 
