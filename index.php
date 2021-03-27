@@ -32,9 +32,24 @@ use Project\Controllers\Controller;
                 if(!empty($username) && (!empty($email) && (!empty($message)))){
                     $controller->contactSender($username, $email, $message);
                 } else{
-                    throw new Exception('You need to fill the form');
+                    throw new Exception('You need to fill the form entirely');
+                }   
+            }
+            else if($_GET['action'] == 'registerNewUser'){
+                $username = htmlspecialchars($POST['username']);
+                $email = htmlspecialchars($POST['email']);
+                $email2 = htmlspecialchars($POST['email2']);
+                $password = htmlspecialchars($POST['password']);
+                $password = password_hash($password, PASSWORD_DEFAULT);
+                $password2 = htmlspecialchars($POST['password2']);
+                $password2 = password_hash($password2, PASSWORD_DEFAULT);
+
+                if(!empty($username) && (!empty($email) && (!empty($email2) && (!empty($password) && (!empty($password2)))))){
+                    $controller->registerNewUser($username, $email, $email2, $password, $password2);
+                } else{
+                    throw new Exception('you need to fill the register form entirely.');
                 }
-                
+
             }
 
 

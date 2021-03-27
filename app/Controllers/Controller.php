@@ -31,8 +31,10 @@ class Controller{
         } else{
             header('Location: app/Views/error.php');
         }
+    }
 
-
+    function registerNewUser($username, $email, $email2, $password, $password2){
+        
     }
 
 }
