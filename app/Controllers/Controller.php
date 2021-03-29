@@ -3,6 +3,8 @@
 namespace Project\Controllers;
 
 use Project\Models\ContactManager;
+use Project\Models\UserManager;
+
 
 class Controller{
 
@@ -33,8 +35,12 @@ class Controller{
         }
     }
 
-    function registerNewUser($username, $email, $email2, $password, $password2){
+    function registerNewUser($username, $email, $confirmEmail ,$password, $confirmPassword){
         
+        $userManager = new \Project\Models\UserManager;
+        $register = $userManager->registerNewUser($username, $email, $confirmEmail ,$password, $confirmPassword);
+        require 'app/Views/success.php';
+    
     }
 
 }

@@ -8,7 +8,7 @@
         
         <h2 class="connect_title">Register a new account</h2>
         
-        <form action="index.php?action=contactSender" method="post">
+        <form action="index.php?action=registerNewUser" method="post">
             
             <label for="username">Username</label>
             <input type="text" name="username" placeholder="Your username">
