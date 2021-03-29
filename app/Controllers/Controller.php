@@ -35,12 +35,11 @@ class Controller{
         }
     }
 
-    function registerNewUser($username, $email, $confirmEmail ,$password, $confirmPassword){
-        
+    function registerNewUser($username, $email,$password){
         $userManager = new \Project\Models\UserManager;
-        $register = $userManager->registerNewUser($username, $email, $confirmEmail ,$password, $confirmPassword);
+        $password = password_hash($password, PASSWORD_DEFAULT);
+        $register = $userManager->registerNewUser($username, $email, $password);
         require 'app/Views/success.php';
-    
     }
 
 }

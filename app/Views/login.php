@@ -7,7 +7,7 @@
         
         <h2 class="connect_title">Connect to your account</h2>
         
-        <form action="" method="post">
+        <form action="index.php?action=connectUser" method="post">
             
             <label for="username">Username</label>
             <input name="username" placeholder="Your username">
