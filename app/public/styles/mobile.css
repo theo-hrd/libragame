@@ -259,3 +259,11 @@
     }
 
 }
+
+/* --- contactsent.php  --- */
+@media only screen and (min-width:360px){
+    
+    .contactsent{
+        height: 85vh;
+    }
+}

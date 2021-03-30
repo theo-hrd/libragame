@@ -28,7 +28,7 @@ class Controller{
         $contactManager = new \Project\Models\ContactManager;
         if(filter_var($email, FILTER_VALIDATE_EMAIL)){
             $contact = $contactManager->sendMessageToDb($username,$email,$message);
-            require 'app/Views/success.php';
+            require 'app/Views/contactsent.php';
         } else{
             header('Location: app/Views/error.php');
         }

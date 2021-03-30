@@ -2,6 +2,7 @@
 
 namespace Project\Models;
 
+use Exception;
 
 class UserManager extends Database{
 
@@ -12,5 +13,15 @@ class UserManager extends Database{
         return $req;
     }
 
-
+    // public function checkUserExists(){
+    //     $database = $this->dbConnect();
+    //     $req = $database->prepare("SELECT * FROM `users` WHERE username = :username");
+    //     if($this->dbConnect->rowCount() > 0){
+    //         throw new Exception('Username already taken');
+    //     } else{
+    //         $this->registerNewUser($username,$email,$password);
+    //     }
+    // } 
+    
+    // I don't know what I'm doing here
 }
