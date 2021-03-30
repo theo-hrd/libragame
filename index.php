@@ -80,10 +80,8 @@ try{
             }
         }
 
-        else{
-            $controller->homePage();
-        }
-    
+    } else{
+        $controller->homePage();
     }
 
 
