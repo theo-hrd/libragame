@@ -20,6 +20,7 @@ class UserManager extends Database{
         return $req;
     }
 
+
     // public function checkUserExists(){
     //     $database = $this->dbConnect();
     //     $req = $database->prepare("SELECT * FROM `users` WHERE username = :username");

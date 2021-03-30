@@ -12,6 +12,7 @@ try{
     $controller = new Controller();
 
     if(isset($_GET['action'])){
+        
         if($_GET['action'] == 'homepage'){ //returning the homepage.php view
             $controller->homePage();
         }
@@ -21,7 +22,10 @@ try{
         else if($_GET['action'] == 'login'){ //returning the login.php view
             $controller->loginPage();
         }
-        else if($_GET['action'] == 'connectUser'){ 
+        else if($_GET['action'] == 'profile'){ // returning the userprofile.php view
+            $controller->profilePage();
+        }
+        else if($_GET['action'] == 'connectUser'){ // starting the session to connect the user
             $username = htmlspecialchars($_POST['username']);
             $password = htmlspecialchars($_POST['password']);
 
@@ -70,7 +74,10 @@ try{
             if($password !== $confirmPassword && $email !== $confirmEmail){
                 throw new Exception('the credentials are not matching');
             }
-        } 
+        }
+        else if($_GET['action'] == 'logout'){ // returning the logout.php view
+            $controller->userLogout();
+        }
         else if($_GET['action'] == 'contactSender'){ //sending contact message 
             
                 $username = htmlspecialchars($_POST['username']);

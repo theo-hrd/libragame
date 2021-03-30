@@ -32,8 +32,6 @@ class Controller{
         } else{
             header('Location: app/Views/error.php');
         }
-        
-    
     }
 
     function registerNewUser($username, $email, $password){
@@ -41,12 +39,11 @@ class Controller{
         $password = password_hash($password, PASSWORD_DEFAULT);
         if(filter_var($email, FILTER_VALIDATE_EMAIL)){
             $register = $userManager->registerNewUser($username, $email, $password);
-            require 'app/Views/success.php';
+            require 'app/Views/userprofile.php';
         }else{
-            header('Location: app/Views/error.php');
+            header('Location: error.php');
         }
     }
-
 
     function connectUser($username, $password){
         $userManager = new \Project\Models\UserManager;
@@ -62,7 +59,23 @@ class Controller{
         if($isPasswordCorrect){
             require 'app/Views/userprofile.php';
         } else{
-            header('Location: app/Views/login.php');
+            header('Location: index.php?action=profile');
         } 
+    }
+
+    function profilePage(){
+        require 'app/Views/userprofile.php';
+    }
+
+    function userLogout(){
+        session_start();
+        session_unset();
+        session_destroy();
+        header('Location: index.php?action=homepage');
+        exit();
+    }
+
+    function successPage(){
+        require 'app/Views/success.php';
     }
 }

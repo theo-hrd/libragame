@@ -23,7 +23,14 @@
                 <a href="index.php?action=homepage" class="brand_name">LibraGame</a>
                 <ul class="main_nav" id="js-menu">
                     <li><a href="index.php?action=contact" class="nav_links">Contact</a></li>
-                    <li><a href="index.php?action=login" class="nav_links">Login</a></li>
+                    <?php 
+                        if(isset($_SESSION['id'])){
+                            echo "<li><a href='index.php?action=profile' class='nav_links'>Profile</a></li>";
+                            echo "<li><a href='index.php?action=logout' class='nav_links'>Logout</a></li>";
+                        } else{
+                            echo "<li><a href='index.php?action=login' class='nav_links'>Login</a></li>";
+                        }
+                    ?>
                 </ul>
             </nav>
             
