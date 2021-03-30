@@ -36,7 +36,7 @@ try{
             $password = htmlspecialchars($_POST['password']); 
             $confirmPassword = htmlspecialchars($_POST['confirmPassword']);
 
-            // handling the errors (maybe put it somewhere else: controller maybe ?)
+            
 
             // checking if everything is filled
             if(!empty($username) && (!empty($email) && (!empty($confirmEmail) && (!empty($password) && (!empty($confirmPassword)))))){ 
@@ -44,9 +44,15 @@ try{
             } else{
                 throw new Exception('you need to fill the register form entirely.');
             }
+
+            // handling the errors (maybe put it somewhere else: controller maybe ?)
+            
             // checking if the email matches the confirm email
             if($email !== $confirmEmail){
                 throw new Exception('the emails are not matching');
+            }
+            if($username < 4){
+                throw new Exception('the username must be at least 4 characters long');
             }
 
             // checking if the password matches the confirm password
