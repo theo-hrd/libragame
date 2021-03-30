@@ -26,9 +26,13 @@ class Controller{
 
     function contactSender($username, $email, $message){
         $contactManager = new \Project\Models\ContactManager;
+        if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $contact = $contactManager->sendMessageToDb($username,$email,$message);
+            require 'app/Views/success.php';
+        } else{
+            header('Location: app/Views/error.php');
+        }
         
-        $contact = $contactManager->sendMessageToDb($username,$email,$message);
-        require 'app/Views/success.php';
     
     }
 
@@ -41,9 +45,6 @@ class Controller{
         }else{
             header('Location: app/Views/error.php');
         }
-        
-        
-        
     }
 
 }

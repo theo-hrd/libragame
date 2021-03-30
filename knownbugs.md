@@ -4,4 +4,4 @@ registration sending 4 times ?????????? maybe cuz of index.php sending to the co
 
 when form is filled entirely but something isnt right it still puts you to the success page BUT throws the error.
 
-contactfrom not working anymore
+contactform not working anymore // done

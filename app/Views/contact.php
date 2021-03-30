@@ -6,7 +6,7 @@
         
         <h1>Contact me</h1>
         
-        <form action="index.php?action=contactSender" method="POST">
+        <form action="index.php?action=contactSender" method="post">
             
             <label for="username">Username</label>
             <input type="text" name="username" placeholder="Your username"> 

@@ -60,7 +60,6 @@ try{
         } 
         else if($_GET['action'] == 'contactSender'){ //sending contact message 
             
-            if(isset($_POST['submit'])){
                 $username = htmlspecialchars($_POST['username']);
                 $email = htmlspecialchars($_POST['email']);
                 $message = htmlspecialchars($_POST['msg']);
@@ -70,7 +69,6 @@ try{
                 } else{
                     throw new Exception('You need to fill the form entirely');
                 }   
-            }
         }
 
     } else{
