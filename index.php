@@ -24,6 +24,13 @@ try{
         else if($_GET['action'] == 'connectUser'){ 
             $username = htmlspecialchars($_POST['username']);
             $password = htmlspecialchars($_POST['password']);
+
+            if(!empty($username) && (!empty($password))){
+                $controller->connectUser($username,$password);
+            } else{
+                throw new Exception('You need to fill all the fields');
+            }
+            //add error handlers such as username not existing or wrong password.
         }
         else if($_GET['action'] == 'register'){ //returning the register.php view
             $controller->registerPage();

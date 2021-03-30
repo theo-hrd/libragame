@@ -28,7 +28,7 @@ class Controller{
         $contactManager = new \Project\Models\ContactManager;
         if(filter_var($email, FILTER_VALIDATE_EMAIL)){
             $contact = $contactManager->sendMessageToDb($username,$email,$message);
-            require 'app/Views/contactsent.php';
+            require 'app/Views/contactsuccess.php';
         } else{
             header('Location: app/Views/error.php');
         }
@@ -47,4 +47,22 @@ class Controller{
         }
     }
 
+
+    function connectUser($username, $password){
+        $userManager = new \Project\Models\UserManager;
+        $userConnect = $userManager->retrievePass($username,$password);
+        $result = $userConnect->fetch();
+
+        $isPasswordCorrect = password_verify($password, $result['password']);
+
+        $_SESSION['username'] = $result['username'];
+        $_SESSION['password'] = $result['password'];
+        $_SESSION['id'] = $result['id'];
+
+        if($isPasswordCorrect){
+            require 'app/Views/userprofile.php';
+        } else{
+            header('Location: app/Views/login.php');
+        } 
+    }
 }

@@ -13,6 +13,13 @@ class UserManager extends Database{
         return $req;
     }
 
+    public function retrievePass($username, $password){
+        $database = $this->dbConnect();
+        $req = $database->prepare('SELECT * FROM users WHERE username = ?');
+        $req->execute(array($username));
+        return $req;
+    }
+
     // public function checkUserExists(){
     //     $database = $this->dbConnect();
     //     $req = $database->prepare("SELECT * FROM `users` WHERE username = :username");
@@ -22,6 +29,6 @@ class UserManager extends Database{
     //         $this->registerNewUser($username,$email,$password);
     //     }
     // } 
-    
+
     // I don't know what I'm doing here
 }
