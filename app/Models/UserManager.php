@@ -16,7 +16,7 @@ class UserManager extends Database{
     // retrieving the password to check if the password matches the username
     public function retrievePass($username, $password){
         $database = $this->dbConnect();
-        $req = $database->prepare('SELECT * FROM users WHERE username = ?');
+        $req = $database->prepare('SELECT * FROM users WHERE username = ?'); // no other choice than using *
         $req->execute(array($username));
         return $req;
     }

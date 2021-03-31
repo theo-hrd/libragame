@@ -1,26 +1,8 @@
 <?php ob_start(); ?>    
 
-<div class="contactsent">
-
-    <h1> Message Sent, I will answer ASAP !</h1>
-
-
-
-
-
+<div class="contact_done">
+    <h1> Message Sent, I will answer to your email adress ASAP !</h1>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -2,7 +2,6 @@
 
 namespace Project\Controllers;
 
-use PDO;
 use Project\Models\ContactManager;
 use Project\Models\UserManager;
 
@@ -18,27 +17,6 @@ class Controller{
             header('Location: app/Views/error.php');
         }
     }
-
-    // function registerNewUser($username, $email, $password){
-    //     $userManager = new \Project\Models\UserManager;
-    //     $password = password_hash($password, PASSWORD_DEFAULT);
-    //     $checkuser = $userManager->checkUserExists();
-    //     // retrieve email and username 'verify'
-    //     // RETURN result in controller
-    //     $register = $userManager->registerNewUser($username, $email, $password);
-    //     // if(exists){
-    //         // echo user already exists
-    //         //} else {
-
-    //         // }
-    // }
-    //     // if(filter_var($email, FILTER_VALIDATE_EMAIL)){
-    //     //     $register = $userManager->registerNewUser($username, $email, $password);
-    //     //     require 'app/Views/userprofile.php';
-    //     // }else{
-    //     //     header('Location: error.php');
-    //     // }
-
 
     function connectUser($username, $password){
         $userManager = new \Project\Models\UserManager;
@@ -75,7 +53,6 @@ class Controller{
         $doesUserExists = $checkUser->fetch();
         $doesEmailExists = $checkEmail->fetch();
         
-        
         // checking if the username is already in database from fetch
         if($doesUserExists){
             echo 'This username already exists';
@@ -83,6 +60,7 @@ class Controller{
             echo 'This e-mail already exists';
         } else{
             $register = $userManager->registerNewUser($username, $email, $password);
+            require 'app/Views/login.php';
         }
     }
 }

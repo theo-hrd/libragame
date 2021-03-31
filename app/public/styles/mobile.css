@@ -260,10 +260,21 @@
 
 }
 
-/* --- contactsent.php  --- */
+/* --- contactsuccess.php  --- */
 @media only screen and (min-width:360px){
     
-    .contactsent{
+    .contact_done{
         height: 85vh;
+    }
+}
+
+/* --- registersuccess.php --- */
+@media only screen and (min-width:360px){
+    
+    .register_done{
+        height: 85vh;
+    }
+    .login_after_register{
+        color: var(--cta);
     }
 }
