@@ -26,28 +26,7 @@ class Database{
         }
 
     }
-    // // Execute the prepared statement
-    // public function execute(){
-    // return $this->stmt->execute();
-    // }
-
-    // // Get result set as array of objects
-    // public function resultSet(){
-    // $this->execute();
-    // return $this->stmt->fetchAll(\PDO::FETCH_OBJ);
-    // }
-
-    // // Get single record as object
-    // public function single(){
-    // $this->execute();
-    // return $this->stmt->fetch(\PDO::FETCH_OBJ);
-    // }
-
-    // // Get row count
-    // public function rowCount(){
-    // return $this->stmt->rowCount();
-    //}
-
+    
 
 }
 

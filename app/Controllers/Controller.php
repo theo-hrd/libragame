@@ -2,6 +2,7 @@
 
 namespace Project\Controllers;
 
+use PDO;
 use Project\Models\ContactManager;
 use Project\Models\UserManager;
 
@@ -18,16 +19,26 @@ class Controller{
         }
     }
 
-    function registerNewUser($username, $email, $password){
-        $userManager = new \Project\Models\UserManager;
-        $password = password_hash($password, PASSWORD_DEFAULT);
-        if(filter_var($email, FILTER_VALIDATE_EMAIL)){
-            $register = $userManager->registerNewUser($username, $email, $password);
-            require 'app/Views/userprofile.php';
-        }else{
-            header('Location: error.php');
-        }
-    }
+    // function registerNewUser($username, $email, $password){
+    //     $userManager = new \Project\Models\UserManager;
+    //     $password = password_hash($password, PASSWORD_DEFAULT);
+    //     $checkuser = $userManager->checkUserExists();
+    //     // retrieve email and username 'verify'
+    //     // RETURN result in controller
+    //     $register = $userManager->registerNewUser($username, $email, $password);
+    //     // if(exists){
+    //         // echo user already exists
+    //         //} else {
+
+    //         // }
+    // }
+    //     // if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+    //     //     $register = $userManager->registerNewUser($username, $email, $password);
+    //     //     require 'app/Views/userprofile.php';
+    //     // }else{
+    //     //     header('Location: error.php');
+    //     // }
+
 
     function connectUser($username, $password){
         $userManager = new \Project\Models\UserManager;
@@ -46,7 +57,7 @@ class Controller{
             header('Location: index.php?action=profile');
         } 
     }
-
+    // logout the user 
     function userLogout(){
         session_start();
         session_unset();
@@ -55,4 +66,23 @@ class Controller{
         exit();
     }
 
+    // registering the user
+    function registerNewUser($username, $email, $password){
+        $userManager = new \Project\Models\UserManager;
+        $password = password_hash($password, PASSWORD_DEFAULT);
+        $checkUser = $userManager->checkUserExists($username);
+        $checkEmail = $userManager->checkEmailExists($email);
+        $doesUserExists = $checkUser->fetch();
+        $doesEmailExists = $checkEmail->fetch();
+        
+        
+        // checking if the username is already in database from fetch
+        if($doesUserExists){
+            echo 'This username already exists';
+        } else if($doesEmailExists){ // checking if the email is already in database from fetch
+            echo 'This e-mail already exists';
+        } else{
+            $register = $userManager->registerNewUser($username, $email, $password);
+        }
+    }
 }
