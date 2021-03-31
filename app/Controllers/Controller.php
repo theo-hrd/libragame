@@ -8,22 +8,6 @@ use Project\Models\UserManager;
 
 class Controller{
 
-    function homePage(){
-        require 'app/Views/homepage.php';
-    }
-
-    function contactPage(){
-        require 'app/Views/contact.php';
-    }
-
-    function loginPage(){
-        require 'app/Views/login.php';
-    }
-
-    function registerPage(){
-        require 'app/Views/register.php';
-    }
-
     function contactSender($username, $email, $message){
         $contactManager = new \Project\Models\ContactManager;
         if(filter_var($email, FILTER_VALIDATE_EMAIL)){
@@ -63,10 +47,6 @@ class Controller{
         } 
     }
 
-    function profilePage(){
-        require 'app/Views/userprofile.php';
-    }
-
     function userLogout(){
         session_start();
         session_unset();
@@ -75,7 +55,4 @@ class Controller{
         exit();
     }
 
-    function successPage(){
-        require 'app/Views/success.php';
-    }
 }

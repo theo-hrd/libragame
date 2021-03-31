@@ -5,25 +5,25 @@ session_start();
 require_once __DIR__ . '/vendor/autoload.php'; 
 
 use Project\Controllers\Controller;
-
+USE Project\Controllers\ViewController;
 
 try{
     
     $controller = new Controller();
-
+    $viewController = new ViewController();
     if(isset($_GET['action'])){
         
         if($_GET['action'] == 'homepage'){ //returning the homepage.php view
-            $controller->homePage();
+            $viewController->homePage();
         }
         else if($_GET['action'] == 'contact'){ //returining the contact.php view
-            $controller->contactPage();
+            $viewController->contactPage();
         }
         else if($_GET['action'] == 'login'){ //returning the login.php view
-            $controller->loginPage();
+            $viewController->loginPage();
         }
         else if($_GET['action'] == 'profile'){ // returning the userprofile.php view
-            $controller->profilePage();
+            $viewController->profilePage();
         }
         else if($_GET['action'] == 'connectUser'){ // starting the session to connect the user
             $username = htmlspecialchars($_POST['username']);
@@ -37,7 +37,7 @@ try{
             //add error handlers such as username not existing or wrong password.
         }
         else if($_GET['action'] == 'register'){ //returning the register.php view
-            $controller->registerPage();
+            $viewController->registerPage();
         }
         else if($_GET['action'] == 'registerNewUser'){ // creating a new user in the database
             
@@ -92,7 +92,7 @@ try{
         }
 
     } else{
-        $controller->homePage();
+        $viewController->homePage();
     }
 
 
