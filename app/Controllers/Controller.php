@@ -17,10 +17,10 @@ class Controller{
             header('Location: app/Views/error.php');
         }
     }
-
+    // connecting the user 
     function connectUser($username, $password){
         $userManager = new \Project\Models\UserManager;
-        $userConnect = $userManager->retrievePass($username);
+        $userConnect = $userManager->userMatching($username);
         $result = $userConnect->fetch();
 
         $isPasswordCorrect = password_verify($password, $result['password']);
