@@ -41,16 +41,12 @@
         <div>
             <?= $content ?>
         </div>
-        <?php
-        if($_GET['action'] == 'contactSender'){
-            echo "";
-        } else{
-            echo "<footer>";
-            echo "<a href='https://github.com/theo-hrd'>Théo Hérédia</a>";
-            echo "<a href='https://rawg.io/apidocs'>RAWG API</a>";
-            echo "</footer>";
-        }
-        ?>
+
+        <footer>
+            <a href='https://github.com/theo-hrd'>Théo Hérédia</a>
+            <a href='https://rawg.io/apidocs'>RAWG API</a>
+        </footer>
+
 
 
     <script src="app/public/js/menu.js"></script>
