@@ -30,6 +30,7 @@ try{
             $username = htmlspecialchars($_POST['username']);
             $password = htmlspecialchars($_POST['password']);
 
+
             if(!empty($username) && (!empty($password))){
                 $controller->connectUser($username,$password);
             } else{

@@ -20,7 +20,7 @@ class Controller{
 
     function connectUser($username, $password){
         $userManager = new \Project\Models\UserManager;
-        $userConnect = $userManager->retrievePass($username,$password);
+        $userConnect = $userManager->retrievePass($username);
         $result = $userConnect->fetch();
 
         $isPasswordCorrect = password_verify($password, $result['password']);

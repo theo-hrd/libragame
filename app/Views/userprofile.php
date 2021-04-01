@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
 
-<h1>profile of the user</h1> 
+<h1>Hi, <?= $_SESSION['username'] ?> </h1> 
 
 
 
