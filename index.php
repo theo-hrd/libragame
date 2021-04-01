@@ -78,15 +78,11 @@ try{
         }
         else if($_GET['action'] == 'contactSender'){ //sending contact message 
             
-                $username = htmlspecialchars($_POST['username']);
-                $email = htmlspecialchars($_POST['email']);
-                $message = htmlspecialchars($_POST['msg']);
-                
-                if(!empty($username) && (!empty($email) && (!empty($message)))){
-                    $controller->contactSender($username, $email, $message);
-                } else{
-                    throw new Exception('You need to fill the form entirely');
-                }   
+            $username = htmlspecialchars($_POST['username']);
+            $email = htmlspecialchars($_POST['email']);
+            $message = htmlspecialchars($_POST['msg']);
+            
+            $controller->contactSender($username, $email, $message);
         }
 
     } else{

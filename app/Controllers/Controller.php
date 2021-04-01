@@ -10,11 +10,26 @@ class Controller{
 
     function contactSender($username, $email, $message){
         $contactManager = new \Project\Models\ContactManager;
-        if(filter_var($email, FILTER_VALIDATE_EMAIL)){
-            $contact = $contactManager->sendMessageToDb($username,$email,$message);
-            require 'app/Views/contactsuccess.php';
+        // Removing all illegal characters from email
+        $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+
+        if(empty($email)){
+            echo "the e-mail is required";
+        }
+        if(empty($message)){
+            echo "the message is required";
+        }
+        if((empty($email) && (empty($message)))){
+            echo "the e-mail and message are required";
+        }
+        if(strlen($message) > 300){
+            echo 'message is too long ! 300 characters maximum are allowed';
+        } 
+        if(!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL) == false){
+            echo "the e-mail is invalid";
         } else{
-            header('Location: app/Views/error.php');
+            $contact = $contactManager->sendMessageToDb($username,$email,$message);
+            // require 'app/Views/contactsuccess.php';
         }
     }
     // connecting the user 

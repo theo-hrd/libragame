@@ -12,10 +12,10 @@
             <input type="text" name="username" placeholder="Your username"> 
 
             <label for="mail">E-mail</label>
-            <input type="email" name="email" placeholder="Your e-mail">
+            <input type="email" name="email" placeholder="Your e-mail (required)">
 
             <label for="msg">Message</label>
-            <textarea name="msg" cols="40" rows="5" placeholder="Your message (300 characters maximum)"></textarea>
+            <textarea name="msg" cols="40" rows="5" placeholder="Your message (300 characters maximum) (required)"></textarea>
             <br>
 
             <input type="submit" value="Send">
