@@ -8,29 +8,22 @@ use Project\Models\UserManager;
 
 class Controller{
 
+    // redirecting to contact.php
+    function contactPage($errors=array()){
+        require 'app/Views/contact.php';
+    }
+
     function contactSender($username, $email, $message){
         $contactManager = new \Project\Models\ContactManager;
         // Removing all illegal characters from email
-        $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+        $errors = \Project\Models\ContactManager::errors($email, $message);
 
-        if(empty($email)){
-            echo "the e-mail is required";
-        }
-        if(empty($message)){
-            echo "the message is required";
-        }
-        if((empty($email) && (empty($message)))){
-            echo "the e-mail and message are required";
-        }
-        if(strlen($message) > 300){
-            echo 'message is too long ! 300 characters maximum are allowed';
-        } 
-        if(!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL) == false){
-            echo "the e-mail is invalid";
-        } else{
+        if(empty($errors)) {
             $contact = $contactManager->sendMessageToDb($username,$email,$message);
-            // require 'app/Views/contactsuccess.php';
+        } else {
+            $this->contactPage($errors);
         }
+
     }
     // connecting the user 
     function connectUser($username, $password){

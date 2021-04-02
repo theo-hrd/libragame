@@ -14,8 +14,24 @@
             <label for="mail">E-mail</label>
             <input type="email" name="email" placeholder="Your e-mail (required)">
 
+            <span class="error">
+                <?= $errors["invalid_email"]; ?>
+            </span>
+
+            <span class="error">
+                <?= $errors["required_email"]; ?>
+            </span>
+
             <label for="msg">Message</label>
             <textarea name="msg" cols="40" rows="5" placeholder="Your message (300 characters maximum) (required)"></textarea>
+            <span class="error">
+                <?= $errors["required_message"]; ?>
+            </span>
+
+            <span class="error">
+                <?= $errors["too_long_message"]; ?>
+            </span>
+
             <br>
 
             <input type="submit" value="Send">
