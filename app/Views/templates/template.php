@@ -51,5 +51,6 @@
 
     <script src="app/public/js/menu.js"></script>
     <script src="app/public/js/featured.js"></script>
+    <script src="app/public/js/genres.js"></script>
 </body>
 </html>

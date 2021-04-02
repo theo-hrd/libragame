@@ -1,5 +1,4 @@
 
-let render = document.getElementById('games');
 const url = "https://api.rawg.io/api/games?key=10afd979e0874030811ad36e60da2bda";
 
 async function featured(){
