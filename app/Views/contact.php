@@ -12,24 +12,40 @@
             <input type="text" name="username" placeholder="Your username"> 
 
             <label for="mail">E-mail</label>
-            <input type="email" name="email" placeholder="Your e-mail (required)" required>
+            <input type="email" name="email" placeholder="Your e-mail (required)" require>
 
             <span class="error">
-                <?= $errors["invalid_email"]; ?>
+            <?php
+                    if(isset($errors["invalid_email"])){
+                        echo $errors["invalid_email"];
+                    }
+                ?>
             </span>
 
             <span class="error">
-                <?= $errors["required_email"]; ?>
+                <?php
+                    if(isset($errors["required_email"])){
+                        echo $errors["required_email"];
+                    }
+                ?>
             </span>
 
             <label for="msg">Message</label>
             <textarea name="msg" cols="40" rows="5" placeholder="Your message (300 characters maximum) (required)" required></textarea>
             <span class="error">
-                <?= $errors["required_message"]; ?>
+            <?php
+                    if(isset($errors["required_message"])){
+                        echo $errors["required_message"];
+                    }
+                ?>
             </span>
 
             <span class="error">
-                <?= $errors["too_long_message"]; ?>
+                <?php
+                    if(isset($errors["too_long_message"])){
+                        echo $errors["too_long_message"];
+                    }
+                ?>
             </span>
 
             <br>
