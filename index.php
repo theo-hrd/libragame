@@ -5,7 +5,7 @@ session_start();
 require_once __DIR__ . '/vendor/autoload.php'; 
 
 use Project\Controllers\Controller;
-USE Project\Controllers\ViewController;
+use Project\Controllers\ViewController;
 
 try{
     
@@ -18,7 +18,7 @@ try{
             $viewController->homePage();
         }
         else if($_GET['action'] == 'contact'){ //returining the contact.php view
-            $viewController->contactPage();
+            $controller->contactPage();
         }
         else if($_GET['action'] == 'login'){ //returning the login.php view
             $viewController->loginPage();
