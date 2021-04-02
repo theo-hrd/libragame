@@ -8,6 +8,14 @@ use Project\Models\UserManager;
 
 class Controller{
 
+    // redirecting to allgames.php
+    function allGamesPage(){
+        require 'app/Views/allgames.php';
+    }
+
+
+
+    // CONTACT
     // redirecting to contact.php
     function contactPage($errors=array()){
         require 'app/Views/contact.php';
@@ -23,8 +31,32 @@ class Controller{
         } else {
             $this->contactPage($errors);
         }
-
     }
+
+
+
+    // REGISTER
+    // registering the user
+    function registerNewUser($username, $email, $password){
+            $userManager = new \Project\Models\UserManager;
+            $password = password_hash($password, PASSWORD_DEFAULT);
+            $checkUser = $userManager->checkUserExists($username);
+            $checkEmail = $userManager->checkEmailExists($email);
+            $doesUserExists = $checkUser->fetch();
+            $doesEmailExists = $checkEmail->fetch();
+            
+            // checking if the username is already in database from fetch
+            if($doesUserExists){
+                echo 'This username already exists';
+            } else if($doesEmailExists){ // checking if the email is already in database from fetch
+                echo 'This e-mail already exists';
+            } else{
+                $register = $userManager->registerNewUser($username, $email, $password);
+                require 'app/Views/login.php';
+            }
+    }
+    
+    // CONNECT
     // connecting the user 
     function connectUser($username, $password){
         $userManager = new \Project\Models\UserManager;
@@ -43,6 +75,7 @@ class Controller{
             header('Location: index.php?action=profile');
         } 
     }
+
     // logout the user 
     function userLogout(){
         session_start();
@@ -52,23 +85,5 @@ class Controller{
         exit();
     }
 
-    // registering the user
-    function registerNewUser($username, $email, $password){
-        $userManager = new \Project\Models\UserManager;
-        $password = password_hash($password, PASSWORD_DEFAULT);
-        $checkUser = $userManager->checkUserExists($username);
-        $checkEmail = $userManager->checkEmailExists($email);
-        $doesUserExists = $checkUser->fetch();
-        $doesEmailExists = $checkEmail->fetch();
-        
-        // checking if the username is already in database from fetch
-        if($doesUserExists){
-            echo 'This username already exists';
-        } else if($doesEmailExists){ // checking if the email is already in database from fetch
-            echo 'This e-mail already exists';
-        } else{
-            $register = $userManager->registerNewUser($username, $email, $password);
-            require 'app/Views/login.php';
-        }
-    }
+
 }

@@ -13,7 +13,7 @@
             
             <!-- "browse games" button -->
             <section class="cta_section">
-                <button class="cta"><a href="#">Browse games</a></button>
+                <button class="cta"><a href="index.php?action=allgames">Browse games</a></button>
             </section>
 
             <!-- some games featured from rawg api -->

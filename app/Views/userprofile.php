@@ -2,7 +2,10 @@
 
 <h1>Hi, <?= $_SESSION['username'] ?> </h1> 
 
-
+<div class="liked_games">
+    <p>Here are your last liked games</p>
+    <!-- retrieve liked games from sql -->
+</div>
 
 
 
