@@ -41,13 +41,9 @@ try{
 
 
 
-
-
-
-
         // USER REGISTER VIEW AND REGISTERING NEW USER
         else if($_GET['action'] == 'register'){ // returning the register.php view
-            $viewController->registerPage();
+            $controller->registerPage();
         }
 
         else if($_GET['action'] == 'registerNewUser'){ // creating a new user in the database
@@ -58,29 +54,9 @@ try{
             $password = htmlspecialchars($_POST['password']); 
             $confirmPassword = htmlspecialchars($_POST['confirmPassword']);
 
-            // handling the errors (maybe put it somewhere else: controller maybe ?)
-            
-            // checking if the email matches the confirm email
-            if($email !== $confirmEmail){
-                throw new Exception('the emails are not matching');
-            }
-            if(strlen($username) < 4){
-                throw new Exception('the username must be at least 4 characters long');
-            }
-            // checking if the password matches the confirm password
-            if($password !== $confirmPassword){
-                throw new Exception('the passwords are not matching');
-            }
-            // checking if the email AND password are matching together 
-            if($password !== $confirmPassword && $email !== $confirmEmail){
-                throw new Exception('the credentials are not matching');
-            }
-            // checking if everything is filled
-            if(!empty($username) && (!empty($email) && (!empty($confirmEmail) && (!empty($password) && (!empty($confirmPassword)))))){ 
-                $controller->registerNewUser($username, $email,$password);
-            } else{
-                throw new Exception('you need to fill the register form entirely.');
-            }
+
+            $controller->registerNewUser($username, $email, $confirmEmail,$password, $confirmPassword);
+
         }
 
 

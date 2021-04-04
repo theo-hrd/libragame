@@ -14,10 +14,7 @@ class ViewController{
         require 'app/Views/login.php';
     }
 
-    // redirecting to register.php
-    function registerPage(){
-        require 'app/Views/register.php';
-    }
+
     
     // redirecting to userprofile.php
     function profilePage(){

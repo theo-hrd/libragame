@@ -16,11 +16,12 @@ class Controller{
 
 
     // CONTACT
+    
     // redirecting to contact.php
     function contactPage($errors=array()){
         require 'app/Views/contact.php';
     }
-
+    // sending the form
     function contactSender($username, $email, $message){
         
         $contactManager = new \Project\Models\ContactManager;
@@ -53,14 +54,22 @@ class Controller{
 
 
     // REGISTER
+    
+    // redirecting to register.php
+    function registerPage($errors=array()){
+        require 'app/Views/register.php';
+    }
+
     // registering the user
-    function registerNewUser($username, $email, $password){
+    function registerNewUser($username, $email,$confirmEmail, $password, $confirmPassword){
             
         $userManager = new \Project\Models\UserManager;
+
         // removing all illegals characters in email
         $email = filter_var($email, FILTER_SANITIZE_EMAIL);
         // hashing password
         $password = password_hash($password, PASSWORD_DEFAULT);
+        $confirmPassword = password_hash($confirmPassword, PASSWORD_DEFAULT);
         // method to check user
         $checkUser = $userManager->checkUserExists($username);
         // method to check email 
@@ -69,15 +78,37 @@ class Controller{
         $doesUserExists = $checkUser->fetch();
         $doesEmailExists = $checkEmail->fetch();
         
+        $errors = array();
 
-
-        if($doesUserExists){ // checking if the username is already in database from fetch
-            echo 'This username already exists';
-        } else if($doesEmailExists){ // checking if the email is already in database from fetch
-            echo 'This e-mail already exists';
-        } else{
-            $register = $userManager->registerNewUser($username, $email, $password);
+        // checking if the email matches the confirm email
+        if($email !== $confirmEmail){
+            $errors['emails_not_matching'] = 'the emails are not matching.';
+        }
+        // checking if the username is at least 4 characters long
+        if(strlen($username) < 4){
+            $errors['username_too_short'] = 'the username must be at least 4 characters long.';
+        }
+        // checking if the password matches the confirm password
+        if($password !== $confirmPassword){
+            $errors['passwords_not_matching'] = 'the passwords are not matching.';
+        }
+        // checking if everything is filled
+        if(empty($username) && (empty($email) && (empty($confirmEmail) && (empty($password) && (empty($confirmPassword)))))){ 
+            $errors['form_not_filled'] = 'you need to fill the register form entirely.';
+        }
+        // checking if the username is already in database from fetch
+        if($doesUserExists){ 
+            $errors['user_already_exists'] = 'The username already exists';
+        }
+        // checking if the email is already in database from fetch
+        if($doesEmailExists){ 
+            $errors['email_already_exists'] = 'the e-mail already exists.';
+        }
+        if(empty($errors)){
+            $register = $userManager->registerNewUser($username, $email,$password);
             require 'app/Views/login.php';
+        } else{
+            $this->registerPage($errors);
         }
     }
     

@@ -12,19 +12,46 @@
             
             <label for="username">Username</label>
             <input type="text" name="username" placeholder="Your username">
-
+            <?php
+                if(isset($errors["username_too_short"])){
+                    echo $errors["username_too_short"];
+                }
+            ?>
+            <?php
+                if(isset($errors["user_already_exists"])){
+                    echo $errors["user_already_exists"];
+                }
+            ?>
             <label for="email">E-mail</label>
             <input type="email" name="email" placeholder="Your e-mail">
-
+            
+            <?php
+                if(isset($errors["email_already_exists"])){
+                    echo $errors["email_already_exists"];
+                }
+            ?>
             <label for="confirmEmail">Confirm e-mail</label>
             <input type="email" name="confirmEmail" placeholder="confirm your e-mail">
-
+            <?php
+                if(isset($errors["emails_not_matching"])){
+                    echo $errors["emails_not_matching"];
+                }
+            ?>
             <label for="password">Password</label>
             <input type="password" name="password" placeholder="Your password">
 
             <label for="confirmPassword">Confirm password</label>
             <input type="password" name="confirmPassword" placeholder="Confirm your password"> <br>
-            
+            <?php
+                if(isset($errors["passwords_not_matching"])){
+                    echo $errors["passwords_not_matching"];
+                }
+            ?>
+            <?php
+                if(isset($errors["form_not_filled"])){
+                    echo $errors["form_not_filled"];
+                }
+            ?>
             <input type="submit" value="Send">
 
         </form>
