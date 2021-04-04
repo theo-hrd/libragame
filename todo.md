@@ -1,7 +1,7 @@
+style the errors in forms
 
-
-add error into form directly (almost done, just bugged)
-
+add error into form directly (done for: contact, remaining: connect, register)
+add required into connect, and register after being done with error handling
 
 CRUD:
 C: register new user

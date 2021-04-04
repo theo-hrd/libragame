@@ -1,1 +1,1 @@
-contact form bugging FOR NO REASON
+even if I refresh cache, errors stay in the form.
