@@ -12,7 +12,7 @@
             <input type="text" name="username" placeholder="Your username"> 
 
             <label for="mail">E-mail</label>
-            <input type="email" name="email" placeholder="Your e-mail (required)" require>
+            <input type="email" name="email" placeholder="Your e-mail (required)" required>
 
             <span class="error">
             <?php

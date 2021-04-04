@@ -4,7 +4,7 @@ namespace Project\Controllers;
 
 use Project\Models\ContactManager;
 use Project\Models\UserManager;
-
+use Project\Models\ErrorManager;
 
 class Controller{
 
@@ -22,43 +22,71 @@ class Controller{
     }
 
     function contactSender($username, $email, $message){
+        
         $contactManager = new \Project\Models\ContactManager;
-        // Removing all illegal characters from email
-        $errors = \Project\Models\ContactManager::errors($email, $message);
+        // removing all illegals characters in email
+        $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+        // declaring an empty array to $errors 
+        $errors = array();
 
+        // error handling
+        if(!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
+            $errors["invalid_email"] = "the e-mail is invalid"; 
+        }
+        if(empty($email)){
+            $errors["required_email"] = "the e-mail is required";
+        }
+        if(empty($message)){
+            $errors["required_message"] =   "the message is required";
+        }
+        if(strlen($message) > 300){
+            $errors["too_long_message"] = 'message is too long ! 300 characters maximum are allowed';
+        } 
+        // if there is no error, we can send to DB
         if(empty($errors)) {
             $contact = $contactManager->sendMessageToDb($username,$email,$message);
         } else {
             $this->contactPage($errors);
         }
     }
-
+    
 
 
     // REGISTER
     // registering the user
     function registerNewUser($username, $email, $password){
-            $userManager = new \Project\Models\UserManager;
-            $password = password_hash($password, PASSWORD_DEFAULT);
-            $checkUser = $userManager->checkUserExists($username);
-            $checkEmail = $userManager->checkEmailExists($email);
-            $doesUserExists = $checkUser->fetch();
-            $doesEmailExists = $checkEmail->fetch();
             
-            // checking if the username is already in database from fetch
-            if($doesUserExists){
-                echo 'This username already exists';
-            } else if($doesEmailExists){ // checking if the email is already in database from fetch
-                echo 'This e-mail already exists';
-            } else{
-                $register = $userManager->registerNewUser($username, $email, $password);
-                require 'app/Views/login.php';
-            }
+        $userManager = new \Project\Models\UserManager;
+        // removing all illegals characters in email
+        $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+        // hashing password
+        $password = password_hash($password, PASSWORD_DEFAULT);
+        // method to check user
+        $checkUser = $userManager->checkUserExists($username);
+        // method to check email 
+        $checkEmail = $userManager->checkEmailExists($email);
+        // then fetching
+        $doesUserExists = $checkUser->fetch();
+        $doesEmailExists = $checkEmail->fetch();
+        
+
+
+        if($doesUserExists){ // checking if the username is already in database from fetch
+            echo 'This username already exists';
+        } else if($doesEmailExists){ // checking if the email is already in database from fetch
+            echo 'This e-mail already exists';
+        } else{
+            $register = $userManager->registerNewUser($username, $email, $password);
+            require 'app/Views/login.php';
+        }
     }
     
+
+
     // CONNECT
     // connecting the user 
     function connectUser($username, $password){
+        
         $userManager = new \Project\Models\UserManager;
         $userConnect = $userManager->userMatching($username);
         $result = $userConnect->fetch();
@@ -78,6 +106,7 @@ class Controller{
 
     // logout the user 
     function userLogout(){
+        
         session_start();
         session_unset();
         session_destroy();
