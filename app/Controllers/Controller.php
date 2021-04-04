@@ -69,7 +69,7 @@ class Controller{
         $email = filter_var($email, FILTER_SANITIZE_EMAIL);
         // hashing password
         $password = password_hash($password, PASSWORD_DEFAULT);
-        $confirmPassword = password_hash($confirmPassword, PASSWORD_DEFAULT);
+        $confirmPassword = password_verify($confirmPassword, $password);
         // method to check user
         $checkUser = $userManager->checkUserExists($username);
         // method to check email 

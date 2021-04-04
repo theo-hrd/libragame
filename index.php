@@ -54,9 +54,7 @@ try{
             $password = htmlspecialchars($_POST['password']); 
             $confirmPassword = htmlspecialchars($_POST['confirmPassword']);
 
-
             $controller->registerNewUser($username, $email, $confirmEmail,$password, $confirmPassword);
-
         }
 
 

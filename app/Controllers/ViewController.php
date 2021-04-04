@@ -14,8 +14,6 @@ class ViewController{
         require 'app/Views/login.php';
     }
 
-
-    
     // redirecting to userprofile.php
     function profilePage(){
         require 'app/Views/userprofile.php';
