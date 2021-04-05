@@ -319,4 +319,10 @@
         width: 320px;
         height: 200px;
     }
+
+    #games h2{
+        color: white;
+        font-family: var(--open-sans);
+        text-align: center;
+    }
 }
