@@ -1,31 +1,18 @@
-// let rendergenres = document.getElementById('game_categories')
-const urlgenre = "https://api.rawg.io/api/genres?key=10afd979e0874030811ad36e60da2bda";
 
-// async function genre(){
-//     const req = await fetch(urlgenre);
-//     const data = await req.json();
-//     let genres = data.results;
+const urlgenre = "https://api.rawg.io/api/genres/4?key=10afd979e0874030811ad36e60da2bda";
 
-//     for(let i = 0 ; i < genres.length ; i++ ){
-        
-//         let a = document.createElement('a.cat_btn');
-//         a.innerText = genres[i].name;
-//         rendergenres.appendChild(a);
-//     }
-
-//         // console.log(data.results[0].name); bon retour de la request avec just le nom
-// }
-// genre();
 
 async function genre(){
     const req = await fetch(urlgenre);
     const data = await req.json();
-    let genres = data.results;
-
-    genres.forEach(genre => {
-        document.getElementById('game_categories').insertAdjacentHTML('beforeend', ` 
-            <a href="" class="cat_btn">${genre.name}</a>
-        `)
-    })
+    let genres = data;
+    console.log(genres.name);
+    // genres.forEach(genre => {
+    //     document.getElementById('game_categories').insertAdjacentHTML('beforeend', ` 
+    //         <button id="cat_btn">${genre.name}</button>
+    //     `)
+    // })
+    // test for only one category
+    document.getElementById('game_categories').insertAdjacentHTML('beforeend', ` 
+        <button class="cat_btn" id='button'>${genre.name}</button>`);
 }
-genre();

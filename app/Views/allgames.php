@@ -6,11 +6,14 @@
     </div>
 </div>
 
-
 <div class="outline"></div>
 
-<div class="games"> 
-    games
+<div class="container">
+    <div id="games"> 
+    <!-- retrieving the games of a given category from the API -->
+
+    </div>
+    
 </div>
 
 
