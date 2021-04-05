@@ -32,3 +32,4 @@ gamesFromCategory();
 
 // NEED TO DO IT FOR EACH CATEGORY.
 // dictionary of all the ids ?
+// loop ?
