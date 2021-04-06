@@ -71,7 +71,7 @@ class Controller{
         $password = password_hash($password, PASSWORD_DEFAULT);
         $hash = $password;
         $confirmPass = password_verify($hash, $password);
-        
+        // hashing confirm password so I can verify after
         $confirmPassword = password_hash($confirmPassword, PASSWORD_DEFAULT);
         $confirmHash = $confirmPassword;
         $confirmConfirmPass = password_verify($confirmHash, $confirmPassword);
@@ -100,9 +100,7 @@ class Controller{
         // checking if the password matches the confirm password
         if($confirmPass !== $confirmConfirmPass){
             $errors['passwords_not_matching'] = 'the passwords are not matching.';
-        } else{
-
-        }
+        } 
         // checking if the username is already in database from fetch
         if($doesUserExists){ 
             $errors['user_already_exists'] = 'The username already exists';
