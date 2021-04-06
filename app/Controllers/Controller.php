@@ -124,20 +124,29 @@ class Controller{
     function connectUser($username, $password){
         
         $userManager = new \Project\Models\UserManager;
-        $userConnect = $userManager->userMatching($username);
-        $result = $userConnect->fetch();
+        $userCheck = $userManager->checkUserExists($username);
+        $doesUserExists = $userCheck->fetch();
+        $retrievePass = $userManager->retrieveUserPass($password);
+        $isPasswordMatching = $retrievePass->fetch();
+        $password = password_hash($password, PASSWORD_DEFAULT);
+        $isPasswordMatching = $password;
 
-        $isPasswordCorrect = password_verify($password, $result['password']);
 
-        $_SESSION['username'] = $result['username'];
-        $_SESSION['password'] = $result['password'];
-        $_SESSION['id'] = $result['id'];
 
-        if($isPasswordCorrect){
+        if($doesUserExists && $isPasswordMatching){
+            $_SESSION['username'] = $doesUserExists['username'];
+            $_SESSION['password'] = $doesUserExists['password'];
+            $_SESSION['id'] = $doesUserExists['id'];
             require 'app/Views/userprofile.php';
         } else{
-            header('Location: index.php?action=profile');
-        } 
+            header('location: index.php?action=login');
+        }
+
+        // if($isPasswordCorrect){
+        //     require 'app/Views/userprofile.php';
+        // } else{
+        //     header('Location: index.php?action=profile');
+        // } 
     }
 
     // logout the user 
