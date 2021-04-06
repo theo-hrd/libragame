@@ -87,7 +87,7 @@ class Controller{
         $errors = array();
         // checking if everything is filled
         if(empty($username) && (empty($email) && (empty($confirmEmail) && (empty($password) && (empty($confirmPassword)))))){ 
-            $errors['form_not_filled'] = 'you need to fill the register form entirely.';
+            $errors['form_not_filled'] = 'you need to fill the register form.';
         }
         // checking if the email matches the confirm email
         if($email !== $confirmEmail){
@@ -124,14 +124,26 @@ class Controller{
     function connectUser($username, $password){
         
         $userManager = new \Project\Models\UserManager;
+        // checking if the user exists
         $userCheck = $userManager->checkUserExists($username);
         $doesUserExists = $userCheck->fetch();
+        // getting the password from database
         $retrievePass = $userManager->retrieveUserPass($password);
         $isPasswordMatching = $retrievePass->fetch();
         $password = password_hash($password, PASSWORD_DEFAULT);
         $isPasswordMatching = $password;
 
+        $errors = array();
 
+        if(empty($username) && empty($password)){
+            $errors['form_not_filled'] = 'You need to fill the login form.';
+        }
+        if(empty($username)){
+            $errors['required_username'] = 'The username is required';
+        }
+        if(empty($password)){
+            $errors['required_password'] = 'The password is required';
+        }
 
         if($doesUserExists && $isPasswordMatching){
             $_SESSION['username'] = $doesUserExists['username'];
