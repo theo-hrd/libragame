@@ -24,8 +24,15 @@ class UserManager extends Database{
     // checking if the user already exists in database
     public function checkUserExists($username){
         $database = $this->dbConnect();
-        $req = $database->prepare("SELECT `username` FROM `users` WHERE username = ?");
-        $req->execute([$username]);
+        $req = $database->prepare("SELECT `username`,`password`,`id` FROM `users` WHERE username = ?");
+        $req->execute(array($username));
+        return $req;
+    }
+
+    public function retrieveUserPass($password){
+        $database = $this->dbConnect();
+        $req = $database->prepare("SELECT `password` FROM `users` WHERE `password` = ? ");
+        $req->execute(array($password));
         return $req;
     }
 
