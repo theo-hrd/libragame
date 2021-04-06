@@ -1,2 +1,2 @@
 even if I refresh cache, errors stay in the form.
-passwords not maching register
+'email is required' and 'emails not matching' if error = filter validate email false

@@ -56,7 +56,7 @@ class Controller{
     // REGISTER
     
     // redirecting to register.php
-    function registerPage($errors=array()){
+    function registerPage($errors =array()){
         require 'app/Views/register.php';
     }
 
@@ -67,6 +67,7 @@ class Controller{
 
         // removing all illegals characters in email
         $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+        $email = filter_var($email, FILTER_VALIDATE_EMAIL);
         // hashing password
         $password = password_hash($password, PASSWORD_DEFAULT);
         $hash = $password;
@@ -88,6 +89,29 @@ class Controller{
         // checking if everything is filled
         if(empty($username) && (empty($email) && (empty($confirmEmail) && (empty($password) && (empty($confirmPassword)))))){ 
             $errors['form_not_filled'] = 'you need to fill the register form.';
+        }
+        // checking if the username is filled
+        if(empty($username)){
+            $errors['username_required'] = 'The username is required';
+        }
+        // checking if the email is filled
+        if(strlen($email) < 1){
+            $errors['email_required'] = 'The e-mail is required';
+        }
+        if($email === $confirmEmail && filter_var($email, FILTER_VALIDATE_EMAIL) == false){
+            $errors['email_not_valid'] = 'the email is not valid';
+        }
+        // checking if the email confirmation is filled (strlen method and not empty or it will say error when the input is not even filled yet)
+        if(strlen($confirmEmail) < 1){
+            $errors['email_confirm_required'] = 'The e-mail confirmation is required';
+        }
+        // checking if the password is filled
+        if(empty($password)){
+            $errors['password_required'] = 'The password is required';
+        }
+        // checking if the password confirmation is filled
+        if(empty($confirmPassword)){
+            $errors['password_confirm_required'] = 'The password confirmation is required';
         }
         // checking if the email matches the confirm email
         if($email !== $confirmEmail){
@@ -120,6 +144,12 @@ class Controller{
 
 
     // CONNECT
+    
+    // redirecting to login.php
+    function loginPage($errors = array()){
+        require 'app/Views/login.php';
+    }
+
     // connecting the user 
     function connectUser($username, $password){
         
@@ -134,25 +164,35 @@ class Controller{
         $isPasswordMatching = $password;
 
         $errors = array();
-
+        // if the username and password are not filled
         if(empty($username) && empty($password)){
             $errors['form_not_filled'] = 'You need to fill the login form.';
         }
+        // if the username is not filled
         if(empty($username)){
             $errors['required_username'] = 'The username is required';
         }
+        // if the password is not filled
         if(empty($password)){
             $errors['required_password'] = 'The password is required';
         }
-
-        if($doesUserExists && $isPasswordMatching){
+        if(!$doesUserExists){
+            $errors['user_does_not_exist'] = 'This user does not exist, please register.';
+        }
+        if($doesUserExists && !$isPasswordMatching){
+            $errors['password_incorrect'] = 'Password does not match username.';
+        }
+        var_dump($errors);
+         if(!empty($errors)){ //&& $doesUserExists && $isPasswordMatching
+            
             $_SESSION['username'] = $doesUserExists['username'];
             $_SESSION['password'] = $doesUserExists['password'];
             $_SESSION['id'] = $doesUserExists['id'];
             require 'app/Views/userprofile.php';
         } else{
-            header('location: index.php?action=login');
+            $this->loginPage($errors);
         }
+        
 
         // if($isPasswordCorrect){
         //     require 'app/Views/userprofile.php';

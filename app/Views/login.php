@@ -12,9 +12,43 @@
             <label for="username">Username</label>
             <input name="username" placeholder="Your username">
 
+            <?php
+                    if(isset($errors["required_username"])){
+                        echo $errors["required_username"];
+                    }
+                ?>
+
+            <?php
+                    if(isset($errors["user_does_not_exist"])){
+                        echo $errors["user_does_not_exist"];
+                    }
+                ?>
+
+
             <label for="password">Password</label>
             <input type="password" name="password" placeholder="Your password"> <br>
-            
+
+            <?php
+                    if(isset($errors["form_not_filled"])){
+                        echo $errors["form_not_filled"];
+                    }
+                ?>
+
+            <span class="error">
+            <?php
+                    if(isset($errors["required_password"])){
+                        echo $errors["required_password"];
+                    }
+                ?>
+            </span>
+            <span class="error">
+            <?php
+                    if(isset($errors["password_incorrect"])){
+                        echo $errors["password_incorrect"];
+                    }
+                ?>
+            </span>
+
             <input type="submit" value="Send">
 
         </form>

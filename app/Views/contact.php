@@ -15,7 +15,7 @@
             <input type="email" name="email" placeholder="Your e-mail (required)" required>
 
             <span class="error">
-            <?php
+                <?php
                     if(isset($errors["invalid_email"])){
                         echo $errors["invalid_email"];
                     }
@@ -33,7 +33,7 @@
             <label for="msg">Message</label>
             <textarea name="msg" cols="40" rows="5" placeholder="Your message (300 characters maximum) (required)" required></textarea>
             <span class="error">
-            <?php
+                <?php
                     if(isset($errors["required_message"])){
                         echo $errors["required_message"];
                     }

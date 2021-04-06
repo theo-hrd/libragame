@@ -9,10 +9,7 @@ class ViewController{
         require 'app/Views/homepage.php';
     }
 
-    // redirecting to login.php
-    function loginPage(){
-        require 'app/Views/login.php';
-    }
+
 
     // redirecting to userprofile.php
     function profilePage(){

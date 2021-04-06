@@ -60,7 +60,7 @@ try{
 
         // USER CONNECT AND DISCONNECT 
         else if($_GET['action'] == 'login'){ // returning the login.php view
-            $viewController->loginPage();
+            $controller->loginPage();
         }
 
         else if($_GET['action'] == 'connectUser'){ // starting the session to connect the user
