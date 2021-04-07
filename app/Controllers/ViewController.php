@@ -16,8 +16,8 @@ class ViewController{
         require 'app/Views/userprofile.php';
     }
 
-    function updateProfilePicturePage(){
-        require 'app/Views/uploadprofilepicture.php';
+    function updateProfileNamePage(){
+        require 'app/Views/updateprofilename.php';
     }
 
 }

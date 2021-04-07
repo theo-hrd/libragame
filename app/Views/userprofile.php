@@ -5,15 +5,10 @@ if(isset($_SESSION)){
     <div class="vh">
         <h1>Hi, <?= $_SESSION['username'] ?> </h1> 
 
-        <h2> profile picture</h2>
-        <img src="" alt="">
-
-        <div class="profilepicbtns">
-            <button class="profile_pic_edit"><a href="index.php?action=updateProfilePicture"> Update your profile picture</a></button>
-            <button class="profile_pic_delete"><a href="index.php?action=deleteProfilePicture">Delete your profile picture</a></button>
+        <div class="profilebtns">
+            <button class="profile_name_edit"><a href="index.php?action=updateProfileName"> Update your profile name</a></button>
+            <button class="profile_delete"><a href="index.php?action=deleteProfile">Delete your Account</a></button>
         </div>
-
-
 
         <div class="liked_games">
             <p>Here are your last liked games</p>
@@ -21,25 +16,10 @@ if(isset($_SESSION)){
         </div>
     </div>  
 <?php
-    } else{
-            header('Location : index.php?action=login');
-        }
+} else{
+        header('Location : index.php?action=login');
+    }
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <?php $content = ob_get_clean(); ?> <!-- PHP function to inject the template -->
 <?php require 'templates/template.php'; ?>

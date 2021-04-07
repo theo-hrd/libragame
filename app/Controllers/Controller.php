@@ -193,12 +193,6 @@ class Controller{
             $this->loginPage($errors);
         }
         
-
-        // if($isPasswordCorrect){
-        //     require 'app/Views/userprofile.php';
-        // } else{
-        //     header('Location: index.php?action=profile');
-        // } 
     }
 
     // logout the user 
@@ -214,97 +208,37 @@ class Controller{
     }
     
     
-    // PROFILE PICTURE 
-    // function uploadProfilePic(){
-    //     if(isset($_POST['submit'])){
-    //         $file = $_FILES['file'];
-
-    //         $fileName = $_FILES['file']['name'];
-    //         $fileTmpName = $_FILES['file']['tmp_name'];
-    //         $fileSize = $_FILES['file']['size'];
-    //         $fileError = $_FILES['file']['error'];
-    //         $fileType = $_FILES['file']['type'];
-            
-    //         // precise file extension 
-    //         $fileExt = explode('.', $fileName);
-    //         // lower case in case if file is in capital letters
-    //         $fileActualExt = strtolower(end($fileExt));
-    //         $allowed = array('jpg', 'jpeg', 'png');
-
-    //         if(in_array($fileActualExt, $allowed)){
-    //             if($fileError === 0){ // if no error
-    //                 if($fileSize < 20000){ // if size of file  less than 2mb
-    //                     // declare a new name to the file to prevent overwriting
-    //                     $fileNewName = uniqid('',true).".".$fileActualExt;
-    //                     $fileDestination = 'app/public/images/profilePictures/' . $fileNewName;
-    //                     move_uploaded_file($fileTmpName, $fileDestination);
-    //                     header('Location: index.php?action=profile');
-    //                 } else {
-    //                     echo 'the file is too big';
-    //                 }
-    //             } else{
-    //                 echo 'there was an error';
-    //             }
-    //         } else{
-    //             echo 'you cannot upload files of this type';
-    //         }
-    //     }
-    // }
-
-    function uploadProfilePicture($id){
-        // declaring the directory where the images are stored
-        $target_dir = 'app/public/images/profilePictures/';
-        // declaring what file it will be in that folder
-        $target_file = $target_dir . basename($_FILES['file']['name']);
-
-        // handler to upload or not
-        $uploadOk = 1;
-        // lowercasing the file name
-        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-        // setting a unique id to the file to prevent overwriting
-        
-        if(isset($_POST['submit'])){
-            $check = getimagesize($_FILES['file']['tmp_name']);
-            
-            if($check !== false){
-                // if size of file is more than 2mb
-                if($_FILES['file']['size'] > 20000){ 
-                    echo 'File is too big.';
-                    $uploadOk = 0;
-                }
-                // checking if the file type is one of these
-                if($imageFileType != 'jpg' && $imageFileType != 'jpeg' && $imageFileType != 'png' && $imageFileType != 'webp'){
-                    echo 'Only JPG, JPEG, PNG, WEBP are accepted.';
-                    $uploadOk = 0;
-                }
-                if($uploadOk = 0){
-                    echo 'sorry, your image could not get uploaded.';
-                }
-                else{
-                    if(move_uploaded_file($_FILES['file']['tmp_name'], $target_file)){
-                        $imageManager = new \Project\Models\ImageManager();
-                        $uploadImage = $imageManager->addImage($id, $target_file);
-                        // require 'app/Views/userprofile.php';
-                    }else{
-                        echo "Sorry there was an error in the upload of your image"; 
-                    }
-                }
-            }else{
-                echo "This file is not an image.";
-            }
-
-        }
-
-
-
-
-
-
-
-
-
-
+    function updateProfileNamePage($errors=array()){
+        require 'app/Views/updateprofilename.php';
     }
 
+    function updateProfileName($id, $username){
+        $userManager = $userManager = new \Project\Models\UserManager;
 
+        // check if username already exists
+        $userCheck = $userManager->checkUserExists($username);
+        $doesUserExists = $userCheck->fetch();
+
+        $errors = array();
+
+        if($doesUserExists){
+            $errors['username_already_taken'] = 'This username is already taken.';
+        } 
+        if(strlen($username) < 4){
+            $errors['username_too_short'] = 'the username must be at least 4 characters long.';
+        }
+        if(empty($username)){
+            $errors['username_required'] = 'You need to fill the username.';
+        }
+
+        if(empty($errors)){
+            $updateUsername = $userManager->changeUsername($id, $username);
+            session_unset();
+            session_destroy();
+            require 'app/Views/userprofile.php';
+        }   else{
+            $this->updateProfileNamePage($errors);
+        }
+
+    }
 }

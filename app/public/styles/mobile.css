@@ -347,11 +347,11 @@
     }
 
 
-    .profilepicbtns{
+    .profilebtns{
         display: flex;
         flex-direction: column;
     }
-    .profile_pic_edit{
+    .profile_name_edit{
         font-size: 1rem;
         font-family: var(--lexend);
         margin: 10px auto;
@@ -361,11 +361,11 @@
         text-align: center;
     
     }
-    .profile_pic_edit a{
+    .profile_name_edit a{
         color: rgba(255, 255, 0, 0.80);
     }
 
-    .profile_pic_delete{
+    .profile_delete{
         font-size: 1rem;
         font-family: var(--lexend);
         margin: 0 auto;
@@ -375,12 +375,12 @@
         text-align: center;
     }
 
-    .profile_pic_delete a{
+    .profile_delete a{
         color: rgba(255, 0, 0, 0.8);
     }
 
-    /* --- uploadprofilpicture.php --- */
-    .profile_pic_send{
+    /* --- uploadprofilname.php --- */
+    .profile_name_send{
         font-size: 1rem;
         font-family: var(--lexend);
         margin: 0 auto;
@@ -391,13 +391,5 @@
         color: rgba(0, 255, 0, 0.8);
     }
 
-    input[type=file]{
-        color: white;
-    }
-    
-    .upload{
-        margin-top: 110px;
-    }
-    
 }
 

@@ -76,13 +76,19 @@ try{
             $controller->userLogout();
         }
 
-        else if($_GET['action'] == 'updateProfilePicture'){
-            $viewController->updateProfilePicturePage();
+
+        // updating profile name page
+        else if($_GET['action'] == 'updateProfileName'){
+            $controller->updateProfileNamePage();
         }
-        else if($_GET['action'] == 'uploadProfilePicture'){
+        // form to update the name
+        else if($_GET['action'] == 'uploadProfileName'){
             $id = $_SESSION['id'];
-            $controller->uploadProfilePicture($id);
+            $username = htmlspecialchars($_POST['username']);
+            $username = str_replace(' ', '', $username);
+            $controller->updateProfileName($id, $username);
         }
+
 
     } else{
         $viewController->homePage();

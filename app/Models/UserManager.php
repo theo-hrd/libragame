@@ -16,7 +16,7 @@ class UserManager extends Database{
     // retrieving the password to check if the password matches the username
     public function userMatching($username){
         $database = $this->dbConnect();
-        $req = $database->prepare('SELECT * FROM users WHERE username = ?'); // no other choice than using *
+        $req = $database->prepare('SELECT * FROM `users` WHERE `username` = ?'); // no other choice than using *
         $req->execute(array($username));
         return $req;
     }
@@ -44,6 +44,17 @@ class UserManager extends Database{
         return $req;
     }
 
+
+    // updating the username
+    public function changeUsername($id, $username){
+        $database = $this->dbConnect();
+        $req = $database->prepare("UPDATE `users` SET `username`= :username WHERE `users`.`id` = :id");
+        $req->execute([
+            'username' => $username,
+            'id' => $id
+            ]);
+        return $req;
+    }
 
 
 }
