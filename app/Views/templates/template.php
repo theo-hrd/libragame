@@ -53,5 +53,6 @@
     <script src="app/public/js/featured.js"></script>
     <script src="app/public/js/genres.js"></script>
     <script src="app/public/js/gamesFromCategory.js"></script>
+
 </body>
 </html>

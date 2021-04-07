@@ -327,3 +327,77 @@
         text-align: center;
     }
 }
+
+
+
+@media only screen and (min-width:360px){
+
+    .vh{
+        height: 85vh;
+    }
+
+}
+
+/* --- userprofile.php --- */
+@media only screen and (min-width:360px){
+    
+    h2{
+        color: white;
+        font-family: var(--open-sans);
+    }
+
+
+    .profilepicbtns{
+        display: flex;
+        flex-direction: column;
+    }
+    .profile_pic_edit{
+        font-size: 1rem;
+        font-family: var(--lexend);
+        margin: 10px auto;
+        background-color: var(--dark_01dp);
+        padding: 6px 8px;
+        border-radius: 30px;
+        text-align: center;
+    
+    }
+    .profile_pic_edit a{
+        color: rgba(255, 255, 0, 0.80);
+    }
+
+    .profile_pic_delete{
+        font-size: 1rem;
+        font-family: var(--lexend);
+        margin: 0 auto;
+        background-color: var(--dark_01dp);
+        padding: 6px 8px;
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    .profile_pic_delete a{
+        color: rgba(255, 0, 0, 0.8);
+    }
+
+    /* --- uploadprofilpicture.php --- */
+    .profile_pic_send{
+        font-size: 1rem;
+        font-family: var(--lexend);
+        margin: 0 auto;
+        background-color: var(--dark_01dp);
+        padding: 6px 8px;
+        border-radius: 30px;
+        text-align: center;
+        color: rgba(0, 255, 0, 0.8);
+    }
+
+    input[type=file]{
+        color: white;
+    }
+    
+    .upload{
+        margin-top: 110px;
+    }
+    
+}
+
