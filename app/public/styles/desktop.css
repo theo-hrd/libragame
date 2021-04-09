@@ -115,7 +115,7 @@
     }
 }
 
-
+/*  */
 
  /* --- login.php ---  */
 @media only screen and (min-width:768px){
@@ -146,6 +146,12 @@
     .vh{
         height: 87vh;
     }
+}
+
+
+
+/* allgames.php */
+@media only screen and (min-width:768px){
 }
 
 

@@ -1,48 +1,46 @@
-
+// url to fetch all the game genres
 const urlgenre = "https://api.rawg.io/api/genres?key=10afd979e0874030811ad36e60da2bda";
 
-
 async function genre(){
-    const req = await fetch(urlgenre);
-    const data = await req.json();
+    const req = await fetch(urlgenre); // request
+    const data = await req.json(); // declaring our data as json
     let genres = data.results;
-    console.log(genres[0].id);
+
     genres.forEach(genre => {
-        let toto = document.getElementById('game_categories');
+        let gameCategories = document.getElementById('game_categories');
         let btn = document.createElement('button');
-        btn.innerText = genre.name;
-        btn.addEventListener('click', function(){
-             // instanciating the ajax object
-        var xhr = new XMLHttpRequest();
-        //  OPEN - type, url/file, async(true false)
-        xhr.open('GET', `https://api.rawg.io/api/games?genres=${genre.id}&key=10afd979e0874030811ad36e60da2bda`,true);
+        btn.classList.add('category_btn');
+        btn.innerText = genre.name; // saying that the button will retrieve the name of the category
+        
+        // let's load the games after the click
+        btn.addEventListener('click', function(){ // when clicking on the button, fetching the games categories
+                // instanciating the ajax object
+            var xhr = new XMLHttpRequest();
+            //  OPEN - type, url/file, async(true false)
+            xhr.open('GET', `https://api.rawg.io/api/games?genres=${genre.id}&key=10afd979e0874030811ad36e60da2bda`,true);
 
-        xhr.onload = function(){
-            if(this.status == 200){
-                let category = JSON.parse(this.responseText);
-                console.log(category);
-                var output = '';
+            xhr.onload = function(){
+                if(this.status == 200){
+                    let category = JSON.parse(this.responseText);
+                    
+                    var output = '';
 
-                
-                for(let i=0; i< category.results.length; i++){
-                    output +=
-                    '<div class="game">'+
-                    '<h2>' +category.results[i].name+ '</h2>'+
-                    '<img src="'+category.results[i].background_image+'" class="img_game">'+
-                    '</div>'
+                    
+                    for(let i=0; i< category.results.length; i++){
+                        output +=
+                        '<div class="game">'+
+                        '<h2>' +category.results[i].name+ '</h2>'+
+                        '<img src="'+category.results[i].background_image+'" class="img_game">'+
+                        '</div>'
+                    }
                 }
+                document.getElementById('games').innerHTML = output;
             }
-            document.getElementById('games').innerHTML = output;
-        }
-        // sends request
-        xhr.send();
+            // sends request
+            xhr.send();
         });
-        toto.appendChild(btn);
-        // document.getElementById('game_categories').insertAdjacentHTML('beforeend', ` 
-        //     <button id="cat_btn">${genre.name}</button>
-        // `)
+        gameCategories.appendChild(btn);
+        
     })
-    // test for only one category
-    // document.getElementById('game_categories').insertAdjacentHTML('beforeend', ` 
-    //     <button class="cat_btn" id='button'>${genre.name}</button>`);
 }
+genre();
