@@ -250,18 +250,17 @@ class Controller{
     }
 
     function deleteUser($id, $selectChoice){
-        $userManager = $userManager = new \Project\Models\UserManager;
         
+        $userManager = $userManager = new \Project\Models\UserManager();
 
-
-            if($selectChoice == 'yes'){
-                $deleteUser = $userManager->deleteUser($id);
-                session_unset();
-                session_destroy();
-
-            } else if($selectChoice == 'no'){
-                header('Location: index.php?action=profile');
-            }
+        if($selectChoice == 'yes'){
+            $deleteUser = $userManager->deleteUser($id);
+            session_unset();
+            session_destroy();
+            require 'app/Views/homepage.php';
+        } else if($selectChoice == 'no'){
+            header('Location: index.php?action=profile');
+        }
 
     
     }
