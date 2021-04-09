@@ -13,13 +13,6 @@ class UserManager extends Database{
         $req->execute(array($username, $email,$password));
         return $req;
     }
-    // retrieving the password to check if the password matches the username
-    public function userMatching($username){
-        $database = $this->dbConnect();
-        $req = $database->prepare('SELECT * FROM `users` WHERE `username` = ?'); // no other choice than using *
-        $req->execute(array($username));
-        return $req;
-    }
 
     // checking if the user already exists in database
     public function checkUserExists($username){
@@ -29,10 +22,11 @@ class UserManager extends Database{
         return $req;
     }
 
-    public function retrieveUserPass($password){
+    // checking if the password is matching the username for the connection form
+    public function userPassword($username){
         $database = $this->dbConnect();
-        $req = $database->prepare("SELECT `password` FROM `users` WHERE `password` = ? ");
-        $req->execute(array($password));
+        $req = $database->prepare('SELECT `password` FROM `users` WHERE `username` = ?'); // no other choice than using *
+        $req->execute(array($username));
         return $req;
     }
 
@@ -56,5 +50,11 @@ class UserManager extends Database{
         return $req;
     }
 
-
+    // deleting the user
+    public function deleteUser($id){
+        $database = $this->dbConnect();
+        $req = $database->prepare("DELETE FROM `users` WHERE id = ?");
+        $req->execute(array($id));
+        return $req;
+    }
 }

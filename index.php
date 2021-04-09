@@ -88,7 +88,15 @@ try{
             $username = str_replace(' ', '', $username);
             $controller->updateProfileName($id, $username);
         }
-
+        // deleting the profile
+        else if($_GET['action'] == 'deleteProfilePage'){
+            $controller->deleteUserProfilePage();
+        }
+        else if($_GET['action'] == 'confirmUserDelete'){
+            $id = $_SESSION['id'];
+            $selectChoice = $_POST['choice'];
+            $controller->deleteUser($id, $selectChoice);
+        }
 
     } else{
         $viewController->homePage();

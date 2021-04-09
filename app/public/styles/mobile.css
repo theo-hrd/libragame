@@ -393,3 +393,36 @@
 
 }
 
+/* error styling */
+@media only screen and (min-width:360px) {
+
+    .error{
+        color: rgba(255, 0, 0, 0.8);
+        width: 100%;
+        font-family: var(--open-sans);
+    }
+
+}
+
+
+/* --- deleteprofile.php --- */
+
+@media only screen and (min-width:360px){
+
+    .delete_account{
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .choice{
+        display: flex;
+        color: white;
+        flex-direction: row-reverse;
+        align-items: center;
+        font-family: 'Open Sans';
+        margin: 0 auto;
+        width: 100px;
+    }
+    
+}

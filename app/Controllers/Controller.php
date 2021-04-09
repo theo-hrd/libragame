@@ -157,11 +157,9 @@ class Controller{
         // checking if the user exists
         $userCheck = $userManager->checkUserExists($username);
         $doesUserExists = $userCheck->fetch();
-        // getting the password from database
-        $retrievePass = $userManager->retrieveUserPass($password);
-        $isPasswordMatching = $retrievePass->fetch();
-        $password = password_hash($password, PASSWORD_DEFAULT);
-        $isPasswordMatching = $password;
+        // getting the password from database 
+        $dbPassword = $userManager->userPassword($username)->fetch()["password"];
+        $confirmPass = password_verify($password, $dbPassword);
 
         $errors = array();
         // if the username and password are not filled
@@ -176,14 +174,17 @@ class Controller{
         if(empty($password)){
             $errors['required_password'] = 'The password is required';
         }
+        // if the user does not exist
         if(!$doesUserExists){
             $errors['user_does_not_exist'] = 'This user does not exist, please register.';
         }
-        if($doesUserExists && !$isPasswordMatching){
+        // if the password isnt correct
+        if($doesUserExists && !$confirmPass){
             $errors['password_incorrect'] = 'Password does not match username.';
         }
 
-         if($doesUserExists && $isPasswordMatching){ //&& $doesUserExists && $isPasswordMatching
+        // if the user and password match the user in db -> connect
+        if($doesUserExists && $confirmPass){
             
             $_SESSION['username'] = $doesUserExists['username'];
             $_SESSION['password'] = $doesUserExists['password'];
@@ -241,4 +242,29 @@ class Controller{
         }
 
     }
+
+
+    //  Deleting the user 
+    function deleteUserProfilePage($errors=array()){
+        require 'app/Views/deleteprofile.php';
+    }
+
+    function deleteUser($id, $selectChoice){
+        $userManager = $userManager = new \Project\Models\UserManager;
+        
+
+
+            if($selectChoice == 'yes'){
+                $deleteUser = $userManager->deleteUser($id);
+                session_unset();
+                session_destroy();
+
+            } else if($selectChoice == 'no'){
+                header('Location: index.php?action=profile');
+            }
+
+    
+    }
+
+    
 }

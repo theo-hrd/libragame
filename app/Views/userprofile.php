@@ -7,7 +7,7 @@ if(isset($_SESSION)){
 
         <div class="profilebtns">
             <button class="profile_name_edit"><a href="index.php?action=updateProfileName"> Update your profile name</a></button>
-            <button class="profile_delete"><a href="index.php?action=deleteProfile">Delete your Account</a></button>
+            <button class="profile_delete"><a href="index.php?action=deleteProfilePage">Delete your Account</a></button>
         </div>
 
         <div class="liked_games">
