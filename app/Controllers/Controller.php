@@ -32,16 +32,16 @@ class Controller{
 
         // error handling
         if(!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
-            $errors["invalid_email"] = "the e-mail is invalid"; 
+            $errors["invalid_email"] = "the e-mail is invalid."; 
         }
         if(empty($email)){
-            $errors["required_email"] = "the e-mail is required";
+            $errors["required_email"] = "the e-mail is required.";
         }
         if(empty($message)){
-            $errors["required_message"] =   "the message is required";
+            $errors["required_message"] =   "the message is required.";
         }
         if(strlen($message) > 300){
-            $errors["too_long_message"] = 'message is too long ! 300 characters maximum are allowed';
+            $errors["too_long_message"] = 'message is too long ! 300 characters maximum are allowed.';
         } 
         // if there is no error, we can send to DB
         if(empty($errors)) {
@@ -92,26 +92,26 @@ class Controller{
         }
         // checking if the username is filled
         if(empty($username)){
-            $errors['username_required'] = 'The username is required';
+            $errors['username_required'] = 'The username is required.';
         }
         // checking if the email is filled
         if(strlen($email) < 1){
-            $errors['email_required'] = 'The e-mail is required';
+            $errors['email_required'] = 'The e-mail is required.';
         }
         if($email === $confirmEmail && filter_var($email, FILTER_VALIDATE_EMAIL) == false){
             $errors['email_not_valid'] = 'the email is not valid';
         }
         // checking if the email confirmation is filled (strlen method and not empty or it will say error when the input is not even filled yet)
         if(strlen($confirmEmail) < 1){
-            $errors['email_confirm_required'] = 'The e-mail confirmation is required';
+            $errors['email_confirm_required'] = 'The e-mail confirmation is required.';
         }
         // checking if the password is filled
         if(empty($password)){
-            $errors['password_required'] = 'The password is required';
+            $errors['password_required'] = 'The password is required.';
         }
         // checking if the password confirmation is filled
         if(empty($confirmPassword)){
-            $errors['password_confirm_required'] = 'The password confirmation is required';
+            $errors['password_confirm_required'] = 'The password confirmation is required.';
         }
         // checking if the email matches the confirm email
         if($email !== $confirmEmail){
@@ -127,7 +127,7 @@ class Controller{
         } 
         // checking if the username is already in database from fetch
         if($doesUserExists){ 
-            $errors['user_already_exists'] = 'The username already exists';
+            $errors['user_already_exists'] = 'The username already exists.';
         }
         // checking if the email is already in database from fetch
         if($doesEmailExists){ 
@@ -168,11 +168,11 @@ class Controller{
         }
         // if the username is not filled
         if(empty($username)){
-            $errors['required_username'] = 'The username is required';
+            $errors['required_username'] = 'The username is required.';
         }
         // if the password is not filled
         if(empty($password)){
-            $errors['required_password'] = 'The password is required';
+            $errors['required_password'] = 'The password is required.';
         }
         // if the user does not exist
         if(!$doesUserExists){

@@ -10,9 +10,10 @@ U: change username (done)
 D: delete your account (done)
 
 form sanitizer (static function)
-for password/email/username
+for password/email/username (done)
 
 
 Like system (check youtube)
 AJAX with the addeventlistener 'click' on categories to retrieve games from that category (done)
 pagination with the request
+get the game details 
