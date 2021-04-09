@@ -11,7 +11,7 @@
         <form action="index.php?action=registerNewUser" method="post">
             
             <label for="username">Username</label>
-            <input type="text" name="username" placeholder="Your username">
+            <input type="text" name="username" placeholder="Your username" required>
             <span class="error">
                 <?php
                     if(isset($errors["username_required"])){
@@ -36,7 +36,7 @@
 
 
             <label for="email">E-mail</label>
-            <input type="email" name="email" placeholder="Your e-mail">
+            <input type="email" name="email" placeholder="Your e-mail" required>
             <span class="error">
                 <?php
                     if(isset($errors["email_required"])){
@@ -53,7 +53,7 @@
             </span>
 
             <label for="confirmEmail">Confirm e-mail</label>
-            <input type="email" name="confirmEmail" placeholder="confirm your e-mail">
+            <input type="email" name="confirmEmail" placeholder="confirm your e-mail" required>
             <span class="error">
                 <?php
                     if(isset($errors["email_not_valid"])){
@@ -77,7 +77,7 @@
             </span>
             
             <label for="password">Password</label>
-            <input type="password" name="password" placeholder="Your password">
+            <input type="password" name="password" placeholder="Your password" required>
             <span class="error">
                 <?php
                     if(isset($errors["password_required"])){
@@ -87,7 +87,7 @@
             </span>
             
             <label for="confirmPassword">Confirm password</label>
-            <input type="password" name="confirmPassword" placeholder="Confirm your password"> <br>
+            <input type="password" name="confirmPassword" placeholder="Confirm your password" required> <br>
             <span class="error">
                 <?php
                     if(isset($errors["password_confirm_required"])){

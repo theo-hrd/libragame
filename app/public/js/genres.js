@@ -22,15 +22,16 @@ async function genre(){
             xhr.onload = function(){
                 if(this.status == 200){
                     let category = JSON.parse(this.responseText);
-                    
+
                     var output = '';
 
-                    
                     for(let i=0; i< category.results.length; i++){
                         output +=
                         '<div class="game">'+
+                        '<a href="index.php?action=game">'+
                         '<h2>' +category.results[i].name+ '</h2>'+
                         '<img src="'+category.results[i].background_image+'" class="img_game">'+
+                        '</a>'+
                         '</div>'
                     }
                 }

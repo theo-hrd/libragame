@@ -22,6 +22,7 @@
                 <span class="navbar_toggle" id="js-navbar-toggle"><i class='bx bx-menu'></i></span>
                 <a href="index.php?action=homepage" class="brand_name">LibraGame</a>
                 <ul class="main_nav" id="js-menu">
+                    <li><a href="index.php?action=allgames" class="nav_links">Browse Games</a></li>
                     <li><a href="index.php?action=contact" class="nav_links">Contact</a></li>
                     <?php 
                         if(isset($_SESSION['id'])){
@@ -38,20 +39,21 @@
 
 
         <!-- retrieving the whole content from other pages -->
-        <div>
+        <div class="main">
             <?= $content ?>
         </div>
 
-        <footer>
-            <a href='https://github.com/theo-hrd'>Théo Hérédia</a>
-            <a href='https://rawg.io/apidocs'>RAWG API</a>
-        </footer>
-
+        
+        
+    <footer>
+    <a href='https://github.com/theo-hrd'>Théo Hérédia</a>
+    <a href='https://rawg.io/apidocs'>RAWG API</a>
+    </footer>
 
 
     <script src="app/public/js/menu.js"></script>
     <script src="app/public/js/featured.js"></script>
     <script src="app/public/js/genres.js"></script>
-
+    <script src="app/public/js/game.js"></script>
 </body>
 </html>

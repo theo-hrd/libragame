@@ -169,6 +169,12 @@
 
 @media only screen and (min-width:1024px){
 
+    /*  navbar */
+    .navbar{
+        padding: 0px 10px;
+    }
+
+
     /* --- homepage.php --- */
     .main_title{
         position: absolute;
@@ -193,7 +199,7 @@
     /* --- contact.php --- */
 
     .contact_card{
-        margin: 155px 100px;
+        margin: 100px;
     }
 
     textarea{

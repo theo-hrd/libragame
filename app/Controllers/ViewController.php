@@ -20,6 +20,8 @@ class ViewController{
         require 'app/Views/updateprofilename.php';
     }
 
-    
+    function singleGamePage(){
+        require 'app/Views/game.php';
+    }
 
 }

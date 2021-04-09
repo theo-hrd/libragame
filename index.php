@@ -25,6 +25,10 @@ try{
         else if($_GET['action'] == 'allgames'){ // returning the allgames.php view
             $controller->allGamesPage();
         }
+        
+        else if($_GET['action'] == 'game'){
+            $viewController->SingleGamePage();
+        }
 
         // CONTACT VIEW AND SENDER
         else if($_GET['action'] == 'contact'){ // returning the contact.php view

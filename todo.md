@@ -1,13 +1,13 @@
-style the errors in forms
+style the errors in forms (done)
 
 add error into form directly (done)
-add required into connect, and register after being done with error handling
+add required into connect, and register after being done with error handling (done)
 
 CRUD:
 C: register new user (done)
 R: retrieve the liked games or whatever 
 U: change username (done)
-D: delete your account 
+D: delete your account (done)
 
 form sanitizer (static function)
 for password/email/username

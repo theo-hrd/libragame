@@ -10,7 +10,7 @@
         <form action="index.php?action=connectUser" method="post">
             
             <label for="username">Username</label>
-            <input name="username" placeholder="Your username">
+            <input name="username" placeholder="Your username" required>
             <span class="error">
                 <?php
                     if(isset($errors["required_username"])){
@@ -27,7 +27,7 @@
             </span>
 
             <label for="password">Password</label>
-            <input type="password" name="password" placeholder="Your password"> <br>
+            <input type="password" name="password" placeholder="Your password" required> <br>
             
             <span class="error">
             <span class="error">
