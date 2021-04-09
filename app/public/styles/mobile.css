@@ -310,6 +310,12 @@
         border: var(--cta) 1px solid;
         margin-bottom: 20px;
     }
+    
+    .game{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
     #games{
         background-color: var(--dark_01dp);
