@@ -161,6 +161,8 @@ class Controller{
         $dbPassword = $userManager->userPassword($username)->fetch()["password"];
         $confirmPass = password_verify($password, $dbPassword);
 
+
+
         $errors = array();
         // if the username and password are not filled
         if(empty($username) && empty($password)){
@@ -236,7 +238,7 @@ class Controller{
             $updateUsername = $userManager->changeUsername($id, $username);
             session_unset();
             session_destroy();
-            require 'app/Views/userprofile.php';
+            header('Location: index.php?action=profile');
         }   else{
             $this->updateProfileNamePage($errors);
         }

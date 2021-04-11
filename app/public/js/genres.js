@@ -44,4 +44,4 @@ async function genre(){
         
     })
 }
-genre();
+//genre();
