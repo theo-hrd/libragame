@@ -32,8 +32,8 @@ class LikeManager extends Database{
 
     function countGame($gameId){
         $database = $this->dbConnect();
-        $req = $database->prepare("SELECT count(*) FROM `likes`");
-        $req->execute(array());
+        $req = $database->prepare("SELECT count(*) FROM `likes` WHERE `gameid`= :gameid");
+        $req->execute(array('gameid' => $gameId));
         return $req;
     }
 

@@ -269,12 +269,16 @@ class Controller{
 
     // Game details page
     function singleGamePage($errors=array()){
+        
+
         $likeManager = new \Project\Models\LikeManager();
         $findLike = $likeManager->findLike($_GET['id'], $_SESSION['id']);
         $isLiked = $findLike->fetch();
 
         $isLiked = !!$isLiked;
         // "bang bang"
+        $countGame = $likeManager->countGame($_GET['id'])->fetch()[0];
+
         require 'app/Views/game.php';
     }
 
