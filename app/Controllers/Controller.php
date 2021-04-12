@@ -216,7 +216,7 @@ class Controller{
     }
 
     function updateProfileName($id, $username){
-        $userManager = $userManager = new \Project\Models\UserManager;
+        $userManager = new \Project\Models\UserManager;
 
         // check if username already exists
         $userCheck = $userManager->checkUserExists($username);
@@ -253,7 +253,7 @@ class Controller{
 
     function deleteUser($id, $selectChoice){
         
-        $userManager = $userManager = new \Project\Models\UserManager();
+        $userManager = new \Project\Models\UserManager();
 
         if($selectChoice == 'yes'){
             $deleteUser = $userManager->deleteUser($id);
@@ -267,5 +267,43 @@ class Controller{
     
     }
 
+    // Game details page
+    function singleGamePage($errors=array()){
+        $likeManager = new \Project\Models\LikeManager();
+        $findLike = $likeManager->findLike($_GET['id'], $_SESSION['id']);
+        $isLiked = $findLike->fetch();
+
+        $isLiked = !!$isLiked;
+        // "bang bang"
+        require 'app/Views/game.php';
+    }
+
+    // programming logic for likes
+    function likeGame($gameId){
+        
+        $errors = array();
+
+        if(!isset($_SESSION['id'])){
+            $errors['not_connected'] = 'You must be connected to like the game !';
+        } else{
+            $userId = $_SESSION['id'];
+            
+            $likeManager = new \Project\Models\LikeManager();
+            $findLike = $likeManager->findLike($gameId, $userId);
+            $isLiked = $findLike->fetch();
+
+            if($isLiked){
+                $dislike = $likeManager->dislikeGame($gameId,$userId);
+
+            } else{
+                $like = $likeManager->likeGame($gameId,$userId);
+            }
+            
+        }
+        header("Location: index.php?action=game&id=$gameId");
+        
+    
+    }
+    
     
 }

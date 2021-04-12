@@ -16,4 +16,8 @@ for password/email/username (done)
 Like system (check youtube)
 AJAX with the addeventlistener 'click' on categories to retrieve games from that category (done)
 pagination with the request
-get the game details with ajax
+get the game details with ajax (done)
+
+refacto css
+
+add event listener hide games before ajax request

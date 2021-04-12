@@ -1,41 +1,42 @@
-const urlgame = `https://api.rawg.io/api/games/${game.id}&key=10afd979e0874030811ad36e60da2bda`;
+
+const urlgame = window.location.search;
+// example: ?action=game&id=3388
+
+// parse the query string's parameters using URLSearchParams
+const urlParams = new URLSearchParams(urlgame);
+
+// now I use the method get to get the id of that game
+const gameId = urlParams.get('id');
+// example: id=3388 => urlParams.get('id') -> 3388
+
+const requestGame = 'https://api.rawg.io/api/games/'+ gameId + '?key=10afd979e0874030811ad36e60da2bda';
+// example: https://api.rawg.io/api/games/3388?key=10afd979e0874030811ad36e60da2bda
 
 async function game(){
-    await genre();
-
-    const req = await fetch(urlgame);
+    
+    const req = await fetch(requestGame);
     const data = await req.json();
     let game = data;
+    // result: game object from api
 
-    let linkGame = document.getElementsByTagName('a');
+    let likeLink = document.getElementById('like_link');
 
-    linkGame.addEventListener('click', function() {
-        var xhr = new XMLHttpRequest();
-            //  OPEN - type, url/file, async(true false)
-            xhr.open('GET', `https://api.rawg.io/api/games?genres=${game.id}&key=10afd979e0874030811ad36e60da2bda`,true);
+    likeLink.href = `index.php?action=like&id=${game.id}`;
 
-            xhr.onload = function(){
-                if(this.status == 200){
-                    let category = JSON.parse(this.responseText);
 
-                    var output = '';
+    document.getElementById('game_details').insertAdjacentHTML('beforeend',
+        `   
+            <div class="game_display">
+                <h2> ${game.name} </h2>
+                <img src="${game.background_image}" alt="featured game">
+            </div>
 
-                    
-                        output +=
-                        '<div class="game">'+
-                        '<h2>' +game.name+ '</h2>'+
-                        '<img src="'+category.background_image+'" class="img_game">'+
-                        '</div>'
-                    
-                }
-                document.getElementById('games').innerHTML = output;
-            }
-            // sends request
-            xhr.send();
-    });
-    
-    gameCategories.appendChild(btn);
-        
-};
+            <div class="game_description">
+                <h3> Game Description </h3>
+                <p> ${game.description} </p>
+            </div>
 
+    `)
+
+}
 game();

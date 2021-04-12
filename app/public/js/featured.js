@@ -11,7 +11,7 @@ async function featured(){
         document.getElementById('featured_game_card').insertAdjacentHTML('beforeend', `
             <div class="flex_game">
             <h3> ${game.name} </h3>   
-            <img src="${game.background_image}">
+            <img src="${game.background_image}" alt="featured game">
             </div>
         `)
     })

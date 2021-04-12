@@ -10,7 +10,7 @@ async function genre(){
         let gameCategories = document.getElementById('game_categories');
         let btn = document.createElement('button');
         btn.classList.add('category_btn');
-        btn.innerText = genre.name; // saying that the button will retrieve the name of the category
+        btn.innerText = genre.name; // content of the button (retrieving the name of the category inside)
         
         // let's load the games after the click
         btn.addEventListener('click', function(){ // when clicking on the button, fetching the games categories
@@ -21,16 +21,16 @@ async function genre(){
 
             xhr.onload = function(){
                 if(this.status == 200){
-                    let category = JSON.parse(this.responseText);
+                    let game = JSON.parse(this.responseText);
 
                     var output = '';
 
-                    for(let i=0; i< category.results.length; i++){
+                    for(let i=0; i< game.results.length; i++){
                         output +=
                         '<div class="game">'+
-                        '<a href="index.php?action=game">'+
-                        '<h2>' +category.results[i].name+ '</h2>'+
-                        '<img src="'+category.results[i].background_image+'" class="img_game">'+
+                        '<a href="index.php?action=game&id='+game.results[i].id+'" id="link_to_game">'+
+                        '<h2>' +game.results[i].name+ '</h2>'+
+                        '<img src="'+game.results[i].background_image+'" class="img_game">'+
                         '</a>'+
                         '</div>'
                     }
@@ -44,4 +44,4 @@ async function genre(){
         
     })
 }
-//genre();
+genre();

@@ -420,3 +420,53 @@
     }
     
 }
+
+/* --- game.php --- */
+
+@media only screen and (min-width:360px){
+
+    .like_btn{
+        padding: 8px 10px;
+        background-color: var(--dark_01dp);
+        border-radius: 3px;
+        border: solid 1px rgba(182, 13, 248, 0.70);
+        font-family: var(--open-sans);
+        margin: 5px 10px;
+    }
+    .like_btn a{
+        color: white;
+    }
+
+    .game_details{
+        margin-top: 30px;
+        padding: 10px;
+        background-color: var(--dark_01dp);
+    }
+
+    .game_display h2{
+        text-align: center;
+        margin-bottom: 6px;
+    }
+
+    .game_display img{
+        display: block;
+        margin: 0 auto;
+        height: 200px;
+        width: 330px;
+    }
+
+    .game_description :is(h3,p){
+        color: white;
+    }
+
+    .game_description h3{
+        font-family: var(--open-sans);
+        margin-top: 10px;
+        margin-bottom: 6px;
+    }
+    .game_description p{
+        font-family: var(--lexend);
+        text-align: justify;
+    }
+
+}

@@ -27,7 +27,7 @@ try{
         }
         
         else if($_GET['action'] == 'game'){
-            $viewController->SingleGamePage();
+            $controller->SingleGamePage();
         }
 
         // CONTACT VIEW AND SENDER
@@ -100,6 +100,13 @@ try{
             $id = $_SESSION['id'];
             $selectChoice = $_POST['choice'];
             $controller->deleteUser($id, $selectChoice);
+        }
+        // like games
+        else if($_GET['action'] == 'like'){
+            $gameId = $_GET['id'];
+            
+            
+            $controller->likeGame($gameId);
         }
 
     } else{
