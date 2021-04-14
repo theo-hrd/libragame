@@ -38,5 +38,11 @@ class LikeManager extends Database{
         return $req;
     }
 
+    function retrievelikedGame($userId){
+        $database = $this->dbConnect();
+        $req = $database->prepare("SELECT gameid FROM likes WHERE userid=:userid");
+        $req->execute(array('userid' => $userId));
+        return $req;
+    }
 
 }

@@ -51,9 +51,11 @@
     </footer>
 
 
-    <script src="app/public/js/menu.js"></script>
-    <script src="app/public/js/featured.js"></script>
-    <script src="app/public/js/genres.js"></script>
-    <script src="app/public/js/game.js"></script>
+    <script type="text/javascript" src="app/public/js/menu.js"></script>
+    
+    
+    
+
+    
 </body>
 </html>

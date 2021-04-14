@@ -12,17 +12,27 @@ if(isset($_SESSION)){
 
         <div class="liked_games">
             <p>Here are your last liked games</p>
-            <div id="liked_game_profile">
-            
-            </div>
-            <!-- retrieve liked games from sql -->
+                
+                    <div id="liked_game_profile">
+                        
+                    </div>
+
         </div>
-    </div>  
+    </div>
+    
+    <!-- calling the script to get the liked games of the user -->
+    <script src="app/public/js/likedGame.js"></script>
+    <!-- calling the ajax function to get the likedgames in php (kind of clunky but its the only way) -->
+    <script>
+        retrieveGames(<?php echo json_encode($likedGames) ?>);
+    </script>
+
+    
 <?php
 } else{
         header('Location : index.php?action=login');
     }
 ?>
 
-<?php $content = ob_get_clean(); ?> <!-- PHP function to inject the template -->
+<?php $content = ob_get_clean();  //PHP function to inject the template ?> 
 <?php require 'templates/template.php'; ?>

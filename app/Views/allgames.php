@@ -16,11 +16,9 @@
     
 </div>
 
+<script src="app/public/js/genres.js"></script>
+<script src="app/public/js/game.js"></script>
 
 
-
-
-
-
-<?php $content = ob_get_clean(); ?> <!-- PHP function to inject the template -->
+<?php $content = ob_get_clean();  //PHP function to inject the template ?> 
 <?php require 'templates/template.php'; ?>

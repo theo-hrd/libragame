@@ -312,5 +312,13 @@ class Controller{
     
     }
     
+    // redirecting to userprofile.php
+    function profilePage($userId){
+        $likeManager = new \Project\Models\LikeManager();
+
+        $likedGames = $likeManager->retrieveLikedGame($userId)->fetchAll();
+        require 'app/Views/userprofile.php';
+    }
+    
     
 }

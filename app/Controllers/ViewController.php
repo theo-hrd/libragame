@@ -11,10 +11,6 @@ class ViewController{
         require 'app/Views/homepage.php';
     }
 
-    // redirecting to userprofile.php
-    function profilePage(){
-        require 'app/Views/userprofile.php';
-    }
 
     // redirecting to updateprofilename.php
     function updateProfileNamePage(){

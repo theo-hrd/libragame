@@ -19,7 +19,8 @@ try{
         }
 
         else if($_GET['action'] == 'profile'){ // returning the userprofile.php view
-            $viewController->profilePage();
+            $userId = $_SESSION['id'];
+            $controller->profilePage($userId);
         }
 
         else if($_GET['action'] == 'allgames'){ // returning the allgames.php view
