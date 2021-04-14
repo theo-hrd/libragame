@@ -158,8 +158,11 @@ class Controller{
         $userCheck = $userManager->checkUserExists($username);
         $doesUserExists = $userCheck->fetch();
         // getting the password from database 
-        $dbPassword = $userManager->userPassword($username)->fetch()["password"];
-        $confirmPass = password_verify($password, $dbPassword);
+        if($doesUserExists){
+            $dbPassword = $userManager->userPassword($username)->fetch()["password"];
+            $confirmPass = password_verify($password, $dbPassword);
+        }
+
 
 
 
@@ -238,7 +241,8 @@ class Controller{
             $updateUsername = $userManager->changeUsername($id, $username);
             session_unset();
             session_destroy();
-            header('Location: index.php?action=profile');
+
+            header('Location: index.php?action=login');
         }   else{
             $this->updateProfileNamePage($errors);
         }
