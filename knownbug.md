@@ -1,0 +1,1 @@
+undefined index 'id' when not connected on a game details page

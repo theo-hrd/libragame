@@ -3,40 +3,8 @@
 /* homepage.php */
 @media only screen and (min-width:768px){
 
-    /* navbar */
-    .navbar{
-        display: flex;
-        justify-content: space-between;
-        padding-bottom: 0;
-        align-items: center;
-    }
 
-    .main_nav{
-        display: flex;
-        margin-right: 30px;
-        flex-direction: row;
-        justify-content: flex-end;
-    }
-    .main_nav li{
-        margin: 0;
-    }
-
-    .nav_links{
-        margin-left: 40px;
-        font-size: 1.3rem;
-    }
-
-    .logo{
-        margin-top: 0;
-    }
-
-    .navbar_toggle{
-        display: none;
-    }
-
-    .brand_name{
-        font-size: 3rem;
-    }
+    /* --- homepage.php --- */
 
     /* main */
     .main_title{
@@ -103,22 +71,22 @@
         flex-direction: column;
     }
 
-}
+
 
 
 
 /* --- contact.php --- */
 
-@media only screen and (min-width:768px){
+
     .contact_card{
         margin: 105px 30px;
     }
-}
 
-/*  */
 
- /* --- login.php ---  */
-@media only screen and (min-width:768px){
+
+
+/* --- login.php ---  */
+
     
     .connect_card{
         margin: 250px 45px;
@@ -136,22 +104,10 @@
         font-size: 1.3rem;
     }
 
-}
-
-
-
-/* --- userprofile.php --- */
-@media only screen and (min-width:768px){
-
-    .vh{
-        height: 87vh;
-    }
-}
-
 
 
 /* allgames.php */
-@media only screen and (min-width:768px){
+
 
     #games img{
         width: 400px;
@@ -169,10 +125,44 @@
 
 @media only screen and (min-width:1024px){
 
-    /*  navbar */
+    /* navbar */
     .navbar{
-        padding: 0px 10px;
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 0;
+        align-items: center;
     }
+
+    .main_nav{
+        display: flex;
+        margin-right: 30px;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    .main_nav li{
+        margin: 0;
+    }
+
+    .nav_links{
+        margin-left: 40px;
+        font-size: 1.3rem;
+    }
+
+    .logo{
+        margin-top: 0;
+    }
+
+    .navbar_toggle{
+        display: none;
+    }
+
+    .brand_name{
+        font-size: 3rem;
+    }
+    /*  navbar */
+    /* .navbar{
+        padding: 0px 10px;
+    } */
 
 
     /* --- homepage.php --- */
@@ -213,7 +203,7 @@
     }
 
 
-    /* allgames.php */
+    /* --- allgames.php --- */
     #games{
         flex-wrap: wrap;
         display: flex;

@@ -23,7 +23,7 @@ try{
         }
 
         else if($_GET['action'] == 'allgames'){ // returning the allgames.php view
-            $controller->allGamesPage();
+            $viewController->allGamesPage();
         }
         
         else if($_GET['action'] == 'game'){
@@ -73,7 +73,6 @@ try{
 
             $controller->connectUser($username,$password);
             
-            //add error handlers such as username not existing or wrong password.
         }
 
         else if($_GET['action'] == 'logout'){ // returning the logout.php view
@@ -104,8 +103,6 @@ try{
         // like games
         else if($_GET['action'] == 'like'){
             $gameId = $_GET['id'];
-            
-            
             $controller->likeGame($gameId);
         }
 

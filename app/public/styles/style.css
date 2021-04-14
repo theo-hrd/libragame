@@ -1,8 +1,7 @@
 /* importing all the other css files into one, so only one link to css in header */
 @import url(mobile.css);
 @import url(desktop.css);
-@import url(root.css);
-
+@import url(root.css);  
 /* Reset */
 
 *{

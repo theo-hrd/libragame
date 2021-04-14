@@ -2,7 +2,7 @@
 
 <div class="container">
     <div id="game_categories">
-        <!-- retrieving the game categories from the API -->
+        <!-- retrieving the game categories from the API (genres.js)-->
     </div>
 </div>
 
@@ -10,7 +10,7 @@
 
 <div class="container">
     <div id="games"> 
-    <!-- retrieving the games of a given category from the API -->
+    <!-- retrieving the games of a given category from the API (genres.js)-->
 
     </div>
     

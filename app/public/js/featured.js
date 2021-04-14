@@ -5,8 +5,8 @@ async function featured(){
     const req = await fetch(url);
     const data = await req.json();
     let games = data.results;
-    // games.forEach(game => console.log(game.background_image))
-    // console.log(games);
+
+    // slicing so I only get 3 games
     games.slice(0,3).forEach(game => {
         document.getElementById('featured_game_card').insertAdjacentHTML('beforeend', `
             <div class="flex_game">
@@ -15,6 +15,6 @@ async function featured(){
             </div>
         `)
     })
-        // console.log(data.results[0].name); bon retour de la request avec just le nom
+
 }
 featured();

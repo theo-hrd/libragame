@@ -1,4 +1,4 @@
-
+// fetching all details for a specing game for the game.php page
 const urlgame = window.location.search;
 // example: ?action=game&id=3388
 
@@ -37,6 +37,7 @@ async function game(){
             </div>
 
     `)
+
 
 }
 game();

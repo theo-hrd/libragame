@@ -11,7 +11,7 @@ class Database{
     private $stmt;
 
     protected function dbConnect(){
-        
+        // defining all the environment variables so I can use them here
         $db_host = $_ENV['DB_HOST'];
         $db_name = $_ENV['DB_NAME'];
         $db_user = $_ENV['DB_USER'];

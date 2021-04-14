@@ -18,6 +18,5 @@ AJAX with the addeventlistener 'click' on categories to retrieve games from that
 pagination with the request
 get the game details with ajax (done)
 
-refacto css
-
-add event listener hide games before ajax request
+refacto css (done)
+ 

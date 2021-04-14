@@ -1,3 +1,4 @@
+// fetching all the games here on the allgames.php page
 // url to fetch all the game genres
 const urlgenre = "https://api.rawg.io/api/genres?key=10afd979e0874030811ad36e60da2bda";
 

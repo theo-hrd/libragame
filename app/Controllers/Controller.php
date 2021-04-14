@@ -8,12 +8,6 @@ use Project\Models\ErrorManager;
 
 class Controller{
 
-    // redirecting to allgames.php
-    function allGamesPage(){
-        require 'app/Views/allgames.php';
-    }
-
-
 
     // CONTACT
     
@@ -31,9 +25,11 @@ class Controller{
         $errors = array();
 
         // error handling
+        // veryfying if the email is correct
         if(!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
             $errors["invalid_email"] = "the e-mail is invalid."; 
         }
+
         if(empty($email)){
             $errors["required_email"] = "the e-mail is required.";
         }
@@ -81,7 +77,7 @@ class Controller{
         $checkUser = $userManager->checkUserExists($username);
         // method to check email 
         $checkEmail = $userManager->checkEmailExists($email);
-        // then fetching
+        // then fetching both
         $doesUserExists = $checkUser->fetch();
         $doesEmailExists = $checkEmail->fetch();
         
@@ -163,10 +159,8 @@ class Controller{
             $confirmPass = password_verify($password, $dbPassword);
         }
 
-
-
-
         $errors = array();
+
         // if the username and password are not filled
         if(empty($username) && empty($password)){
             $errors['form_not_filled'] = 'You need to fill the login form.';
@@ -214,6 +208,8 @@ class Controller{
     }
     
     
+
+    // EDIT USERNAME
     function updateProfileNamePage($errors=array()){
         require 'app/Views/updateprofilename.php';
     }
@@ -250,7 +246,7 @@ class Controller{
     }
 
 
-    //  Deleting the user 
+    //  DELETING USER
     function deleteUserProfilePage($errors=array()){
         require 'app/Views/deleteprofile.php';
     }
@@ -258,7 +254,7 @@ class Controller{
     function deleteUser($id, $selectChoice){
         
         $userManager = new \Project\Models\UserManager();
-
+        // checking what the user chose
         if($selectChoice == 'yes'){
             $deleteUser = $userManager->deleteUser($id);
             session_unset();
@@ -271,11 +267,13 @@ class Controller{
     
     }
 
-    // Game details page
+
+    // GAMES
+    // Game details page (game.php)
     function singleGamePage($errors=array()){
         
-
         $likeManager = new \Project\Models\LikeManager();
+        
         $findLike = $likeManager->findLike($_GET['id'], $_SESSION['id']);
         $isLiked = $findLike->fetch();
 
@@ -286,7 +284,7 @@ class Controller{
         require 'app/Views/game.php';
     }
 
-    // programming logic for likes
+    // programming logic for likes on the game details (game.php)
     function likeGame($gameId){
         
         $errors = array();
@@ -300,14 +298,15 @@ class Controller{
             $findLike = $likeManager->findLike($gameId, $userId);
             $isLiked = $findLike->fetch();
 
+            // if the game is liked, you can dislike it, else, you can like it
             if($isLiked){
                 $dislike = $likeManager->dislikeGame($gameId,$userId);
-
             } else{
                 $like = $likeManager->likeGame($gameId,$userId);
             }
             
         }
+        // redirecting to the same game page after the like/dislike
         header("Location: index.php?action=game&id=$gameId");
         
     

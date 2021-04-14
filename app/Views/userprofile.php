@@ -12,6 +12,9 @@ if(isset($_SESSION)){
 
         <div class="liked_games">
             <p>Here are your last liked games</p>
+            <div id="liked_game_profile">
+            
+            </div>
             <!-- retrieve liked games from sql -->
         </div>
     </div>  

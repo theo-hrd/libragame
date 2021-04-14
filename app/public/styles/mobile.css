@@ -163,12 +163,11 @@
     }
 
 
-}   
+
 
 
 /* --- contact.php --- */
 
-@media only screen and (min-width:360px){
 
     .contact_card{
         background-color: var(--dark_01dp);
@@ -228,11 +227,11 @@
         font-family: var(--open-sans);
     }
 
-}
+
 
 
 /* --- login.php --- */
-@media only screen and (min-width:360px){
+
     
 
     .connect_card{
@@ -262,22 +261,22 @@
         font-size: 1.2rem;
     }
 
-}
+
 
 
 
 /* --- registersuccess.php --- */
-@media only screen and (min-width:360px){
+
     
 
     .login_after_register{
         color: var(--cta);
     }
-}
+
 
 /* --- allgames.php --- */
 
-@media only screen and (min-width:360px){
+
 
     #game_categories{
         margin: 35px 30px 80px 30px;
@@ -327,13 +326,13 @@
         font-family: var(--open-sans);
         text-align: center;
     }
-}
+
 
 
 
 
 /* --- userprofile.php --- */
-@media only screen and (min-width:360px){
+
     
     h2{
         color: white;
@@ -385,10 +384,10 @@
         color: rgba(0, 255, 0, 0.8);
     }
 
-}
+
 
 /* error styling */
-@media only screen and (min-width:360px) {
+
 
     .error{
         color: rgba(255, 0, 0, 0.8);
@@ -396,12 +395,12 @@
         font-family: var(--open-sans);
     }
 
-}
+
 
 
 /* --- deleteprofile.php --- */
 
-@media only screen and (min-width:360px){
+
 
     .delete_account{
         display: flex;
@@ -419,11 +418,11 @@
         width: 100px;
     }
     
-}
+
 
 /* --- game.php --- */
 
-@media only screen and (min-width:360px){
+
 
     .like_btn{
         padding: 8px 10px;
