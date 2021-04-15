@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 172.19.0.2
--- Generation Time: Apr 15, 2021 at 07:52 PM
+-- Generation Time: Apr 15, 2021 at 07:59 PM
 -- Server version: 10.3.28-MariaDB-1:10.3.28+maria~focal
 -- PHP Version: 7.4.16
 
@@ -46,17 +46,6 @@ CREATE TABLE `likes` (
   `gameid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `likes`
---
-
-INSERT INTO `likes` (`id`, `userid`, `gameid`) VALUES
-(25, 11, 1030),
-(26, 11, 4200),
-(27, 11, 4003),
-(28, 11, 13633),
-(29, 11, 3498);
-
 -- --------------------------------------------------------
 
 --
@@ -69,19 +58,6 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES
-(5, 'tttt', 'ttt@ttt.com', '$2y$10$Fd2IBV/K7BhsT5p6Fkv8XeYJzC9RFAfKmiINDs2.wh975eWTgqAPe'),
-(6, 'testspace', 'ffqf@fff.com', '$2y$10$gHLck.nOxGaFHP04ADrjp.eEQsqeWwu0wGYE40pn813KD9A9b8ke2'),
-(7, 'testspaces', 'testspace@aaa.com', '$2y$10$Bf/VfmVzMLeETMXMlOMClutWUNmr4Q/y7XXYCB.tHRKTUZjCXw1TK'),
-(8, 'testspacesdd', 'testspaced@aaa.com', '$2y$10$we6STi6zegGN3dUPd/Y6/u1DLwVbrfzh0GvprnODfi0zKMxQ4JPXu'),
-(9, 'testspacesddff', 'testspacedf@aaa.com', '$2y$10$xV446M9VnNFq1PtqjvtvXODaY5pmes2Mz4dg7IksEuPtMFDjqBIEy'),
-(10, 'salut', 'coucou@a.com', '$2y$10$hLn/UGg0EMDJlqknHy.cIOLkYSxI8NJb5Z4GQ2dYg40fR/4KaMOKq'),
-(11, 'theo', 'theo@ttt.com', '$2y$10$DDFgfyCsvvUX9hDrpHZk7eSaKUoxRSscT503yjYf4SU7OwNhfeHDK');
 
 --
 -- Indexes for dumped tables
