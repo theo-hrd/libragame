@@ -178,8 +178,8 @@
     }
 
     #featured_game_card img{
-        width: 320px;
-        height: 200px;
+        width: 480px;
+        height: 270px;
     }
 
     footer{
@@ -212,11 +212,19 @@
     }
 
     .game{
+
         margin: 20px;
+        display: flex;
+        /* flex-direction: row; */
+        flex-wrap: wrap;
+        width: 45%;
+        justify-content: space-around;
     }
 
     #games img{
         margin-top: 15px;
+        width: 500px;
+        height: 285px;
     }
 }
 

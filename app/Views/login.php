@@ -3,7 +3,7 @@
 
 <div class="container">
     
-    <div class="connect_card">
+    <div class="connect_card" data-aos="fade-down">
         
         <h2 class="connect_title">Connect to your account</h2>
         

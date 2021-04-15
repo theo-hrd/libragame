@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./app/public/styles/style.css">
     <!-- icons -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- js animations -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Lexend:wght@300&family=Open+Sans&display=swap" rel="stylesheet">
@@ -53,9 +55,12 @@
 
     <script type="text/javascript" src="app/public/js/menu.js"></script>
     
-    
+    <!-- script to start AOS (animations library) -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
     
 
-    
 </body>
 </html>

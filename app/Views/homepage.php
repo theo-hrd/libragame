@@ -4,7 +4,7 @@
         <!-- background image -->
         <img class="bg_img" src="app/public/images/bg1080-min.jpg" alt="background image">
         <!-- main title -->
-        <div class="main_title">
+        <div class="main_title" data-aos="fade-right">
             <h1>LibraGame</h1>
             <p>The library for your next game.</p>
         </div>
@@ -17,7 +17,7 @@
             </section>
 
             <!-- some games featured from rawg api -->
-            <div class="featured_games">
+            <div class="featured_games"  >
                 <h2>Featured games:</h2>
                 <div id="featured_game_card"></div>
             </div>

@@ -10,7 +10,7 @@ async function featured(){
     // slicing so I only get 3 games
     games.slice(0,3).forEach(game => {
         document.getElementById('featured_game_card').insertAdjacentHTML('beforeend', `
-            <div class="flex_game" data-aos="fade-up">
+            <div class="flex_game" data-aos="zoom-in">
             <h3> ${game.name} </h3>   
             <img src="${game.background_image}" alt="featured game">
             </div>

@@ -12,6 +12,7 @@ async function getGenres(){
         let gameCategories = document.getElementById('game_categories');
         let btn = document.createElement('button');
         btn.classList.add('category_btn');
+        btn.setAttribute('data-aos', 'zoom-in')
         btn.innerText = genre.name; // content of the button (retrieving the name of the category inside)
         
         // let's load the games after the click
@@ -91,6 +92,10 @@ async function getGenres(){
 }
 getGenres();
 
+
+
+// Pagination
+
 // getting the games from a specific genre
 async function getGames(genre, page){
     // instanciating the ajax object
@@ -106,7 +111,7 @@ async function getGames(genre, page){
 
             for(let i=0; i< game.results.length; i++){
                 output +=
-                '<div class="game">'+
+                '<div class="game" data-aos="fade-up" data-aos-delay="150" data-aos-duration="500">'+
                 '<a href="index.php?action=game&id='+game.results[i].id+'" id="link_to_game">'+
                 '<h2>' +game.results[i].name+ '</h2>'+
                 '<img src="'+game.results[i].background_image+'" class="img_game">'+

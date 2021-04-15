@@ -2,7 +2,7 @@
 
 <div class="container">
 
-    <div class="contact_card">
+    <div class="contact_card" data-aos="fade-down">
         
         <h1>Contact me</h1>
         
