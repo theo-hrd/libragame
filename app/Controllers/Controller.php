@@ -198,7 +198,6 @@ class Controller{
     // logout the user 
     function userLogout(){
         if(isset($_SESSION)){
-            session_start();
             session_unset();
             session_destroy();
             header('Location: index.php?action=homepage');
@@ -270,15 +269,20 @@ class Controller{
 
     // GAMES
     // Game details page (game.php)
-    function singleGamePage($errors=array()){
+    function singleGamePage(){
         
         $likeManager = new \Project\Models\LikeManager();
+        if(isset($_SESSION['id'])){
+            $findLike = $likeManager->findLike($_GET['id'], $_SESSION['id']);
+            $isLiked = $findLike->fetch();
+        }else{
+            $isLiked = false;
+        }
         
-        $findLike = $likeManager->findLike($_GET['id'], $_SESSION['id']);
-        $isLiked = $findLike->fetch();
 
         $isLiked = !!$isLiked;
         // "bang bang"
+        //  The right ! will result in a boolean, regardless of the operand. Then the left ! will negate that boolean.
         $countGame = $likeManager->countGame($_GET['id'])->fetch()[0];
 
         require 'app/Views/game.php';
@@ -287,10 +291,10 @@ class Controller{
     // programming logic for likes on the game details (game.php)
     function likeGame($gameId){
         
-        $errors = array();
+        
 
         if(!isset($_SESSION['id'])){
-            $errors['not_connected'] = 'You must be connected to like the game !';
+            $_SESSION['errors']['not_connected'] = 'You must be connected to like the game !';
         } else{
             $userId = $_SESSION['id'];
             

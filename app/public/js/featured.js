@@ -15,7 +15,7 @@ async function featured(){
             <img src="${game.background_image}" alt="featured game">
             </div>
         `)
-    })
+    });
 
 }
 featured();

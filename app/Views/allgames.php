@@ -15,7 +15,9 @@
     </div>
     
 </div>
-
+<div id="pagination">
+   
+</div>
 <script src="app/public/js/genres.js"></script>
 <script src="app/public/js/game.js"></script>
 

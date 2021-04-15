@@ -5,7 +5,7 @@ add required into connect, and register after being done with error handling (do
 
 CRUD:
 C: register new user (done)
-R: retrieve the liked games or whatever 
+R: retrieve the liked games or whatever (done)
 U: change username (done)
 D: delete your account (done)
 
@@ -15,8 +15,9 @@ for password/email/username (done)
 
 Like system (check youtube)
 AJAX with the addeventlistener 'click' on categories to retrieve games from that category (done)
-pagination with the request
+pagination with the request (done)
 get the game details with ajax (done)
 
 refacto css (done)
  
+ add rewrite uri

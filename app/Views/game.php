@@ -5,8 +5,15 @@
         <div id="game_details">
             <button class="like_btn"><a id="like_link"> <?= $isLiked ? "Liked !" : "Like" ?> (<?= " liked $countGame times by Libragamers"?>)</a></button>
             <?php
-                if(isset($errors["not_connected"])){
-                    echo $errors["not_connected"];
+                if(isset($_SESSION['errors']["not_connected"])){
+            ?>
+                    <span class="error" id="error">
+            <?php 
+                    echo $_SESSION['errors']["not_connected"];
+                    unset($_SESSION['errors']);
+            ?>
+                    </span>
+            <?php
                 }
             ?>
         <!-- output of game.js -->
@@ -15,6 +22,14 @@
 </div>
 
 
+<!-- simple script to set an animation on the error -->
+<script>
+    if(document.body.contains(error)){
+        setTimeout(function(){
+            document.getElementById('error').remove();
+        }, 2500);
+    }
+</script>
 
 
 
@@ -28,7 +43,7 @@
 
 
 
-
+<script src="app/public/js/game.js"></script>
 
 
 <?php $content = ob_get_clean();  //PHP function to inject the template ?> 

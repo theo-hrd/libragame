@@ -27,7 +27,7 @@ try{
             $viewController->allGamesPage();
         }
         
-        else if($_GET['action'] == 'game'){
+        else if($_GET['action'] == 'game'){ 
             $controller->SingleGamePage();
         }
 
