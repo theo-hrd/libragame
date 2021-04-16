@@ -12,7 +12,7 @@ async function getGenres(){
         let gameCategories = document.getElementById('game_categories');
         let btn = document.createElement('button');
         btn.classList.add('category_btn');
-        btn.setAttribute('data-aos', 'zoom-in')
+        btn.setAttribute('data-aos', 'flip-up');
         btn.innerText = genre.name; // content of the button (retrieving the name of the category inside)
         
         // let's load the games after the click
@@ -33,7 +33,15 @@ async function getGenres(){
             // declaring variables previous/next 
             const previous = document.getElementById('previous');
             const next = document.getElementById('next');
-
+            
+            // adding class for styling and attribute for js animation (more readable here than putting in the innerHTML line 27)
+            previous.classList.add('pagination_btn');
+            previous.setAttribute('data-aos','zoom-in');
+            
+            // adding class for styling and attribute for js animation (more readable here than putting in the innerHTML line 27)
+            next.classList.add('pagination_btn');
+            next.setAttribute('data-aos','zoom-in');
+            next.setAttribute('data-aos-delay','1000');
             // previous button on eventListener
             previous.addEventListener('click', function(){
                 
@@ -50,6 +58,7 @@ async function getGenres(){
                     // if the next button is hidden
                     if(next.getAttribute("style") != null){
                         next.setAttribute("style", "");//show the button
+                        
                     }
                 }
             });

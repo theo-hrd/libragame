@@ -134,9 +134,13 @@
         margin: 0 auto;
         padding: 20px 20px;
         background-color: var(--dark_01dp);
-        border-radius: 10px;
+        border-radius: 4px;
         width: 100%;
-    }
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        -o-border-radius: 4px;
+}
 
     #featured_game_card img{
         width: 320px;
@@ -164,9 +168,7 @@
 
 
 
-
-
-/* --- contact.php --- */
+    /* --- contact.php --- */
 
 
     .contact_card{
@@ -228,18 +230,19 @@
 
 
 
+    /* --- login.php --- */
 
-/* --- login.php --- */
-
-    
 
     .connect_card{
         background-color: var(--dark_01dp);
-        border-radius: 3px;
+        border-radius: 4px;
         padding: 15px 0px;
         margin: 150px 0px;
-    }
-
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        -o-border-radius: 4px;
+}
 
     .connect_title{
         color: white;
@@ -262,19 +265,16 @@
 
 
 
-
-
-/* --- registersuccess.php --- */
+    /* --- registersuccess.php --- */
 
     
-
     .login_after_register{
         color: var(--cta);
     }
 
 
-/* --- allgames.php --- */
 
+    /* --- allgames.php --- */
 
 
     #game_categories{
@@ -313,8 +313,13 @@
 
     #games{
         background-color: var(--dark_01dp);
-        padding: 20px 20px;
-    }
+        padding: 20px 0px;
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        -o-border-radius: 4px;
+}
     
     #games img{
         width: 320px;
@@ -327,11 +332,25 @@
         text-align: center;
     }
 
+    #pagination{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .pagination_btn{
+        padding: 8px 10px;
+        background-color: var(--dark_01dp);
+        border-radius: 3px;
+        border: solid 1px rgba(182, 13, 248, 0.70);
+        color: white;
+        font-family: var(--open-sans);
+        margin: 5px 10px;
+
+    }
 
 
 
-
-/* --- userprofile.php --- */
+    /* --- userprofile.php --- */
 
     
     h2{
@@ -372,7 +391,10 @@
         color: rgba(255, 0, 0, 0.8);
     }
 
-    /* --- uploadprofilname.php --- */
+
+
+    /* --- uploadprofilename.php --- */
+
     .profile_name_send{
         font-size: 1rem;
         font-family: var(--lexend);
@@ -386,20 +408,7 @@
 
 
 
-/* error styling */
-
-
-    .error{
-        color: rgba(255, 0, 0, 0.8);
-        width: 100%;
-        font-family: var(--open-sans);
-    }
-
-
-
-
-/* --- deleteprofile.php --- */
-
+    /* --- deleteprofile.php --- */
 
 
     .delete_account{
@@ -420,8 +429,7 @@
     
 
 
-/* --- game.php --- */
-
+    /* --- game.php --- */
 
 
     .like_btn{
@@ -468,4 +476,13 @@
         text-align: justify;
     }
 
+
+
+    /* error styling */
+
+    .error{
+        color: rgba(255, 0, 0, 0.8);
+        width: 100%;
+        font-family: var(--open-sans);
+    }
 }

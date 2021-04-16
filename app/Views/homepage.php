@@ -4,7 +4,7 @@
         <!-- background image -->
         <img class="bg_img" src="app/public/images/bg1080-min.jpg" alt="background image">
         <!-- main title -->
-        <div class="main_title" data-aos="fade-right">
+        <div class="main_title" data-aos="fade-right" data-aos-duration="1500">
             <h1>LibraGame</h1>
             <p>The library for your next game.</p>
         </div>
@@ -24,6 +24,10 @@
 
         </div>
     </main>
-    <script src="app/public/js/featured.js"></script>
+
+
+<script src="app/Public/js/featured.js"></script>
+
+
 <?php $content = ob_get_clean();  //PHP function to inject the template ?> 
 <?php require 'templates/template.php'; ?>

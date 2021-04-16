@@ -43,7 +43,7 @@
 
 
 
-<script src="app/public/js/game.js"></script>
+<script src="app/Public/js/game.js"></script>
 
 
 <?php $content = ob_get_clean();  //PHP function to inject the template ?> 

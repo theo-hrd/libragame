@@ -1,5 +1,6 @@
 <?php ob_start(); ?>
 <?php
+// if there is a session go to the userprofile, else go to the login page
 if(isset($_SESSION)){
 ?>
     <div class="vh">
