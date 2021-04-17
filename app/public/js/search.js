@@ -1,3 +1,9 @@
+let allGames;
+
+function getGames(json){
+    allGames = json;
+}
+
 // fetching all the game for the search
 async function search(){
     // const req = await fetch(urlSearchGame); // request
@@ -12,14 +18,11 @@ async function search(){
 
     xhr.open('GET', `https://api.rawg.io/api/games?key=10afd979e0874030811ad36e60da2bda`,true);
 
-    const allGames = () => {
-        xhr.onload = function retrieve(){
-            if(this.status == 200){
-                return JSON.parse(this.responseText);
-            }
+    xhr.onload = function retrieve(){
+        if(this.status == 200){
+            getGames(JSON.parse(this.responseText));
         }
-        return retrieve();
-    };
+    }
 
     console.log(allGames);
 
