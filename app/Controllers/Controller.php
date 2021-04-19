@@ -41,7 +41,8 @@ class Controller{
         } 
         // if there is no error, we can send mail
         if(empty($errors)) {
-            mail($subject,$email,$message);
+            $to = "theo.hrd02@gmail.com";
+            mail($to,$subject,$email,$message);
             require 'app/Views/contactsuccess.php';
         } else {
             $this->contactPage($errors);
