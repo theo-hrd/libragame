@@ -1,3 +1,9 @@
+let allGames;
+
+function getGames(json){
+    allGames = json;
+}
+
 // fetching all the game for the search
 async function search(){
     // const req = await fetch(urlSearchGame); // request
