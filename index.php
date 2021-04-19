@@ -70,11 +70,11 @@ try{
 
             // CONTACT VIEW AND SENDER
             case 'contactSender':
-                $username = htmlspecialchars($_POST['username']);
+                $subject = htmlspecialchars($_POST['subject']);
                 $email = htmlspecialchars($_POST['email']);
                 $message = htmlspecialchars($_POST['msg']);
                     
-                $controller->contactSender($username, $email, $message);
+                $controller->contactSender($subject, $email, $message);
                 break;
 
 

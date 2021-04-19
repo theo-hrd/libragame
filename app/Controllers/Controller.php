@@ -16,9 +16,9 @@ class Controller{
         require 'app/Views/contact.php';
     }
     // sending the form
-    function contactSender($username, $email, $message){
+    function contactSender($subject, $email, $message){
         
-        $contactManager = new \Project\Models\ContactManager;
+        // $contactManager = new \Project\Models\ContactManager;
         // removing all illegals characters in email
         $email = filter_var($email, FILTER_SANITIZE_EMAIL);
         // declaring an empty array to $errors 
@@ -39,9 +39,10 @@ class Controller{
         if(strlen($message) > 300){
             $errors["too_long_message"] = 'message is too long ! 300 characters maximum are allowed.';
         } 
-        // if there is no error, we can send to DB
+        // if there is no error, we can send mail
         if(empty($errors)) {
-            $contact = $contactManager->sendMessageToDb($username,$email,$message);
+            mail($subject,$email,$message);
+            require 'app/Views/contactsuccess.php';
         } else {
             $this->contactPage($errors);
         }

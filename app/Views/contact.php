@@ -4,12 +4,12 @@
 
     <div class="contact_card" data-aos="fade-down">
         
-        <h1>Contact me</h1>
+        <h1 class="h1contact">Contact me</h1>
         
         <form action="index.php?action=contactSender" method="post">
             
-            <label for="username">Username</label>
-            <input type="text" name="username" placeholder="Your username"> 
+            <label for="username">Subject</label>
+            <input type="text" name="subject" placeholder="Subject (not required)"> 
 
             <label for="mail">E-mail</label>
             <input type="email" name="email" placeholder="Your e-mail (required)" required>
