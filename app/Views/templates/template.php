@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Libragame is a Web Application to look for new games to buy.">
     <!-- style -->
     <link rel="stylesheet" href="./app/public/styles/style.css">
-    <!-- icons -->
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <!-- js animations -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- google fonts -->
@@ -21,8 +20,17 @@
     <header>
             <!-- navbar -->
             <nav class="navbar">
-                <span class="navbar_toggle" id="js-navbar-toggle"><i class='bx bx-menu'></i></span>
+                
+                <span class="navbar_toggle" id="js-navbar-toggle">
+                    <svg viewBox="0 0 100 60" width="23" height="23">
+                        <rect width="100" height="20" rx="8" fill="white"></rect>
+                        <rect y="30" width="100" height="20"  rx="8" fill="white"></rect>
+                        <rect y="60" width="100" height="20"  rx="8" fill="white"></rect>
+                    </svg>
+                </span>
+
                 <a href="index.php?action=homepage" class="brand_name">LibraGame</a>
+
                 <ul class="main_nav" id="js-menu">
                     <li><a href="index.php?action=allgames" class="nav_links">Browse Games</a></li>
                     <li><a href="index.php?action=contact" class="nav_links">Contact</a></li>
@@ -48,8 +56,8 @@
         
         
     <footer>
-    <a href='https://github.com/theo-hrd'>Théo Hérédia</a>
-    <a href='https://rawg.io/apidocs'>RAWG API</a>
+        <a href='https://github.com/theo-hrd'>Théo Hérédia</a>
+        <a href='https://rawg.io/apidocs'>RAWG API</a>
     </footer>
 
 

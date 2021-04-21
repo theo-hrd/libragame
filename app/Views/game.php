@@ -14,7 +14,7 @@
             ?>
                     </span>
             <?php
-                }
+            }
             ?>
         <!-- output of game.js -->
         </div>

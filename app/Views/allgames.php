@@ -1,6 +1,7 @@
 <?php ob_start(); ?>
 
 <div class="container">
+    
     <div id="game_categories">
         <!-- retrieving the game categories from the API (genres.js)-->
     </div>
@@ -15,15 +16,17 @@
 <div class="outline"></div>
 
 <div class="container">
+    
     <div id="games"> 
     <!-- retrieving the games of a given category from the API (genres.js)-->
 
     </div>
     
 </div>
-<div id="pagination">
 
-</div>
+<div id="pagination"></div>
+
+
 <script src="app/Public/js/genres.js"></script>
 <script src="app/Public/js/game.js"></script>
 <script src="app/Public/js/search.js"></script>

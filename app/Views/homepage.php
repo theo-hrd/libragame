@@ -3,6 +3,7 @@
 
         <!-- background image -->
         <img class="bg_img" src="app/public/images/bg1080-min.jpg" alt="background image">
+        
         <!-- main title -->
         <div class="main_title" data-aos="fade-right" data-aos-duration="1500">
             <h1>LibraGame</h1>
@@ -23,6 +24,7 @@
             </div>
 
         </div>
+        
     </main>
 
 
