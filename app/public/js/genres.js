@@ -4,6 +4,7 @@ const urlgenre = "https://api.rawg.io/api/genres?key=10afd979e0874030811ad36e60d
 
 // getting the game genres
 async function getGenres(){
+    
     const req = await fetch(urlgenre); // request
     const data = await req.json(); // declaring our data as json
     let genres = data.results;
@@ -88,6 +89,7 @@ async function getGenres(){
                         if(response.detail){
                             next.setAttribute("style", "display:none;");
                         }
+                        
                     }
                 }
             });
@@ -123,11 +125,15 @@ async function getGames(genre, page){
                 '<div class="game" data-aos="fade-up" data-aos-delay="150" data-aos-duration="500">'+
                 '<a href="index.php?action=game&id='+game.results[i].id+'" id="link_to_game">'+
                 '<h2>' +game.results[i].name+ '</h2>'+
-                '<img src="'+game.results[i].background_image+'" class="img_game">'+
+                '<img src="'+game.results[i].background_image+'" class="img_game" alt="game image">'+
                 '</a>'+
                 '</div>'
             }
-            
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
         } else {
             var output = "Warning! There is no game on this page.";
             next.setAttribute("style", "display:none;");

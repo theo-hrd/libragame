@@ -3,7 +3,7 @@
 <div class="container">
     <div id="game">
         <div id="game_details">
-            <button class="like_btn"><a id="like_link"> <?= $isLiked ? "Liked !" : "Like" ?> (<?= " liked $countGame times by Libragamers"?>)</a></button>
+            <button class="like_btn"><a id="like_link"> <?= $isLiked ? "Liked !" : "Like" ?> (<?= " liked $countGame times by Libragamers "?>)</a></button>
             <?php
                 if(isset($_SESSION['errors']["not_connected"])){
             ?>

@@ -121,6 +121,20 @@
         align-items: center;
     }
 
+
+/* game.php */
+
+    .like_btn{
+        margin-top: 20px;
+    }
+
+    .flex_dev_meta{
+        padding: 20px 50px;
+    }
+
+    .game_description{
+        padding: 8px 10px;
+    }
 }
 
 

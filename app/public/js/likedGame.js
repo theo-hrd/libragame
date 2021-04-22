@@ -12,7 +12,7 @@ function retrieveGames(likedGames){
                 `   
                     <div class="game_display">
                         <h2> ${game.name} </h2>
-                        <img src="${game.background_image}" alt="featured game">
+                        <img src="${game.background_image}" alt="game image">
                     </div>
     
                     <div class="game_description">
