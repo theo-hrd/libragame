@@ -10,15 +10,15 @@ function retrieveGames(likedGames){
     
             document.getElementById('liked_game_profile').insertAdjacentHTML('beforeend',
                 `   
+
+                <div class="liked_game_box">
                     <div class="game_display">
                         <h2> ${game.name} </h2>
-                        <img src="${game.background_image}" alt="game image">
+                        <img src="${game.background_image}" alt="game image" data-aos="zoom-in">
                     </div>
-    
-                    <div class="game_description">
-                        <h3> Game Description </h3>
-                        <p> ${game.description} </p>
-                    </div>
+                </div>
+
+
     
             `)
     

@@ -11,7 +11,7 @@ const gameId = urlParams.get('id');
 
 const requestGame = 'https://api.rawg.io/api/games/'+ gameId + '?key=10afd979e0874030811ad36e60da2bda';
 // example: https://api.rawg.io/api/games/3388?key=10afd979e0874030811ad36e60da2bda
-console.log(requestGame);
+
 
 async function game(){
     
@@ -23,20 +23,22 @@ async function game(){
     let likeLink = document.getElementById('like_link');
     
     likeLink.href = `index.php?action=like&id=${game.id}`;
-
-
+    // .reduce lets you iterate and concatenate at the same time in your array 
+    const platformList = game.parent_platforms.reduce((list, p)=>{
+        return `${list} <p>${p.platform.name}</p>`},"")
+        
     document.getElementById('game_details').insertAdjacentHTML('beforeend',
         `   
-            <div class="game_display">
-                <h2> ${game.name} </h2>
+            <div class="game_display" data-aos="zoom in">
+                <h2 class="game_title"> ${game.name} </h2>
                 <img src="${game.background_image}" alt="game image">
             </div>
             <div class="flex_dev_meta">
-                <div class="developers">
+                <div class="developers" data-aos="fade-right">
                     <h3> Developed by: </h3>
                     <p> ${game.developers[0].name} </p>
                 </div>
-                <div class="metacritic">
+                <div class="metacritic"  data-aos="fade-left">
                     <h3> Metacritic Ranking: </h3>
                     <p> ${game.metacritic} </p>
                 </div>
@@ -49,13 +51,8 @@ async function game(){
 
             <div class="game_description">
                 <h3> Platforms: </h3>
-                <p> ${game.parent_platforms[0].platform.name} </p>
-                <p> ${game.parent_platforms[1].platform.name} </p>
-                <p> ${game.parent_platforms[2].platform.name} </p>
+                ${platformList}
             </div>
-
     `)
-
-
 }
 game();

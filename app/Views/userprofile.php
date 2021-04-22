@@ -4,17 +4,17 @@
 if(isset($_SESSION)){
 ?>
     <div class="vh">
-        <h1>Hi, <?= $_SESSION['username'] ?> </h1> 
+        <h1>Hi, <?= $_SESSION['username'] ?> ! How are you doing ?</h1> 
 
         <div class="profilebtns">
-            <button class="profile_name_edit"><a href="index.php?action=updateProfileName"> Update your profile name</a></button>
-            <button class="profile_delete"><a href="index.php?action=deleteProfilePage">Delete your Account</a></button>
+            <button class="profile_name_edit" data-aos="fade-left"><a href="index.php?action=updateProfileName" > Update your profile name</a></button>
+            <button class="profile_delete" data-aos="fade-right"><a href="index.php?action=deleteProfilePage" >Delete your Account</a></button>
         </div>
 
         <div class="liked_games">
-            <p>Here are your last liked games</p>
+            <h2 class="title_liked">Here are your last liked games</h2>
                 
-                    <div id="liked_game_profile">
+                    <div id="liked_game_profile" class="game_title">
                         
                     </div>
 

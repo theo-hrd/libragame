@@ -322,7 +322,7 @@
 }
     
     #games img{
-        width: 320px;
+        width: 290px;
         height: 200px;
     }
 
@@ -354,12 +354,6 @@
     /* --- userprofile.php --- */
 
     
-    h2{
-        color: white;
-        font-family: var(--open-sans);
-    }
-
-
     .profilebtns{
         display: flex;
         flex-direction: column;
@@ -392,6 +386,19 @@
         color: rgba(255, 0, 0, 0.8);
     }
 
+    .title_liked{
+        padding: 20px 0px;
+        font-size: 1.4rem;
+        color: white;
+        font-family: var(--lexend);
+        text-align: center;
+    }
+    
+    .game_title{
+        font-size: 1.2rem;
+        font-family: var(--lexend);
+        color: white;
+    }
 
 
     /* --- uploadprofilename.php --- */
