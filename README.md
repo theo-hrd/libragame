@@ -20,7 +20,7 @@ I used JavaScript, with some AJAX (first time that I used it) for the API reques
 
 The games are classified by genre, clickable on the buttons and fetched using AJAX on the 'browse games' page.
 
-
+<img src="libragame.gif">
 
 ## Back end:
 
