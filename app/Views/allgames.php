@@ -5,11 +5,6 @@
     <div id="game_categories">
         <!-- retrieving the game categories from the API (genres.js)-->
     </div>
-
-    <div>
-        <input type="text" id="searchGame" placeholder="Search for a game">
-    </div>
-
 </div>
 
 

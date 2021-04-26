@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 172.19.0.2
--- Generation Time: Apr 19, 2021 at 07:44 AM
+-- Generation Time: Apr 26, 2021 at 04:51 PM
 -- Server version: 10.3.28-MariaDB-1:10.3.28+maria~focal
 -- PHP Version: 7.4.16
 
@@ -33,20 +33,6 @@ CREATE TABLE `likes` (
   `gameid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `likes`
---
-
-INSERT INTO `likes` (`id`, `userid`, `gameid`) VALUES
-(30, 12, 5525),
-(31, 12, 422),
-(32, 12, 2055),
-(33, 12, 58764),
-(34, 12, 3272),
-(36, 12, 654),
-(37, 12, 3498),
-(38, 12, 2093);
-
 -- --------------------------------------------------------
 
 --
@@ -59,13 +45,6 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES
-(12, 'teub', 'teub@g.com', '$2y$10$Zl97eAJJAS6wiGQM017JgOUjVmeuUZh3v/2GVMMwUY71l4qckJbym');
 
 --
 -- Indexes for dumped tables
@@ -92,13 +71,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
