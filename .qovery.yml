@@ -1,0 +1,15 @@
+---
+application:
+  name: "libragame"
+  project: "libragame"
+  organization: "QoveryCommunity"
+databases:
+- type: "MYSQL"
+  name: "libragame"
+  version: "8.0"
+routers:
+- name: "main-libragame"
+  routes:
+  - application_name: "libragame"
+    paths:
+    - "/*"
